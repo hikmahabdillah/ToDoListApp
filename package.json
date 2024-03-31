@@ -1,0 +1,27 @@
+{
+  "name": "todolistapp",
+  "version": "1.0.0",
+  "description": "todolist app build with tailwindcss and vanilla javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch",
+    "minify": "npx tailwind -i ./src/css/input.css -o ./public/css/final.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hikmahabdillah/ToDoListApp.git"
+  },
+  "keywords": [
+    "todoapps"
+  ],
+  "author": "hikmahabdillah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hikmahabdillah/ToDoListApp/issues"
+  },
+  "homepage": "https://github.com/hikmahabdillah/ToDoListApp#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
