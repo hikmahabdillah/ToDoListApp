@@ -9,34 +9,38 @@
   <body>
     <!-- <div class="container mx-auto p-4"></div> -->
     <div
-      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center gap-4 z-10 relative h-screen p-5"
+      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 h-screen p-5"
     >
-      <img
-        src="./img/Illustration.png"
-        class="max-w-[254px] max-h-[280px] w-full sm:mr-4"
-        alt=""
-      />
       <div
-        class="greeting flex flex-col justify-center items-center sm:items-start gap-1"
+        class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center"
       >
-        <img src="./img/Logo.png" alt="" width="100px" />
+        <img
+          src="./img/Illustration.png"
+          class="max-w-[254px] max-h-[280px] sm:scale-105 md:scale-[1.15] w-full"
+          alt=""
+        />
         <div
-          class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80"
+          class="greeting flex flex-col justify-center items-center sm:items-start"
         >
-          <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
-            Organize Your Life, One Task at a Time
-          </h1>
-          <p class="text-neutral-200 text-sm sm:text-base sm:leading-none">
-            Welcome to my to-do list application, where simplicity meets
-            efficiency. With our user-friendly interface.
-          </p>
+          <img src="./img/Logo.png" alt="" width="100px" />
+          <div
+            class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80"
+          >
+            <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
+              Organize Your Life, One Task at a Time
+            </h1>
+            <p class="text-neutral-200 text-sm sm:text-base sm:leading-snug">
+              Welcome to my to-do list application, where simplicity meets
+              efficiency. With our user-friendly interface.
+            </p>
+          </div>
+          <span
+            class="bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center"
+          >
+            <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
+            <img src="./img/Right Arrow.png" alt=""
+          /></span>
         </div>
-        <span
-          class="bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full"
-        >
-          <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
-          <img src="./img/Right Arrow.png" alt=""
-        /></span>
       </div>
     </div>
     <!-- Header -->
