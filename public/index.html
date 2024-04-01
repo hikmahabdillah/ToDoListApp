@@ -6,10 +6,12 @@
     <title>ToDooo | ToDoList App</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body
+    class="bg-gradient-to-b from-[#E1C659] to-[#BC6100] bg-no-repeat h-screen"
+  >
     <!-- <div class="container mx-auto p-4"></div> -->
     <div
-      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 h-screen p-5"
+      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 h-screen p-5 transition-all duration-500"
     >
       <div
         class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center"
@@ -35,7 +37,7 @@
             </p>
           </div>
           <span
-            class="bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center"
+            class="btn-continue bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center cursor-pointer transition-all duration-500 hover:scale-90"
           >
             <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
             <img src="./img/Right Arrow.png" alt=""
@@ -44,5 +46,7 @@
       </div>
     </div>
     <!-- Header -->
+    <h1 class="cursor-pointer text-slate-900 font-bold">hello world</h1>
+    <script src="./js/script.js"></script>
   </body>
 </html>
