@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDooo | ToDoList App</title>
+    <!-- <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body
-    class="bg-gradient-to-b from-[#E1C659] to-[#BC6100] bg-no-repeat h-screen"
-  >
+  <body class="bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400] h-screen">
     <!-- <div class="container mx-auto p-4"></div> -->
     <div
       class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 h-screen p-5 transition-all duration-500 absolute w-full"
@@ -18,7 +17,7 @@
       >
         <img
           src="./img/Illustration.png"
-          class="max-w-[254px] max-h-[280px] sm:scale-105 md:scale-[1.15] w-full drop-shadow-[0_15px_10px_rgba(188,97,0,1)]"
+          class="max-w-[254px] max-h-[280px] animate-updown w-full drop-shadow-[0_15px_10px_rgba(188,97,0,1)]"
           alt=""
         />
         <div
@@ -46,7 +45,29 @@
       </div>
     </div>
     <!-- Header -->
-    <h1 class="cursor-pointer text-slate-900 font-bold">hello world</h1>
+    <div class="container p-5">
+      <nav class="flex justify-between p-3 items-center">
+        <img src="./img/Logo.png" width="90px" alt="" />
+        <img src="./img/Info.png" width="35px" alt="" />
+      </nav>
+      <div class="content grid grid-cols-2 gap-5 p-3">
+        <header class="col-span-2">
+          <h1 class="font-semibold text-[#FFD423] text-2xl">Good Morning !</h1>
+          <h3 class="font-medium text-slate-50 text-base">Sun, 31 Mar 2024</h3>
+        </header>
+        <span
+          class="bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max"
+        >
+          <h3 class="font-semibold text-[#FF8400] text-lg">Add Item</h3>
+          <img src="./img/Add.png" alt="" height="30px" />
+        </span>
+        <h4
+          class="font-semibold text-base px-4 py-2 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center"
+        >
+          17 Tasks
+        </h4>
+      </div>
+    </div>
     <script src="./js/script.js"></script>
   </body>
 </html>
