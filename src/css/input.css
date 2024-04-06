@@ -10,3 +10,16 @@
     z-index: -1;
   }
 }
+
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  display: none; /* hidden track scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  display: none; /* hidden thumb scrollbar */
+}

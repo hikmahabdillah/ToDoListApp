@@ -7,10 +7,10 @@
     <!-- <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400] h-screen">
+  <body class="bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400]">
     <!-- <div class="container mx-auto p-4"></div> -->
     <div
-      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 h-screen p-5 transition-all duration-500 absolute w-full"
+      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden "
     >
       <div
         class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center"
@@ -45,13 +45,13 @@
       </div>
     </div>
     <!-- Header -->
-    <div class="container p-5">
+    <div class="container p-5 mx-auto">
       <nav class="flex justify-between p-3 items-center">
         <img src="./img/Logo.png" width="90px" alt="" />
         <img src="./img/Info.png" width="35px" alt="" />
       </nav>
       <div class="content grid grid-cols-2 gap-5 p-3">
-        <header class="col-span-2">
+        <header class="col-span-2 mb-2">
           <h1 class="font-semibold text-[#FFD423] text-2xl">Good Morning !</h1>
           <h3 class="font-medium text-slate-50 text-base">Sun, 31 Mar 2024</h3>
         </header>
@@ -62,10 +62,154 @@
           <img src="./img/Add.png" alt="" height="30px" />
         </span>
         <h4
-          class="font-semibold text-base px-4 py-2 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center"
+          class="font-semibold text-base px-4 py-1 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center"
         >
           17 Tasks
         </h4>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">To Do</h1>
+        <div
+          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+        >
+          <div
+            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+          >
+            <div
+              class="headCard col-span-2 flex justify-between items-center h-7"
+            >
+              <p class="w-max font-medium text-sm text-[#FF8400]">
+                Development
+              </p>
+              <img src="./img/More.png" class="h-9 mr-2" alt="" />
+            </div>
+            <h2
+              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+            >
+              Update Portofolio
+            </h2>
+            <span
+              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+              >10:00 am - 15:00 pm</span
+            >
+          </div>
+            <div
+              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+            >
+              <div
+                class="headCard col-span-2 flex justify-between items-center h-7"
+              >
+                <p class="w-max font-medium text-sm text-[#FF8400]">
+                  Development
+                </p>
+                <img src="./img/More.png" class="h-9 mr-2" alt="" />
+              </div>
+              <h2
+                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+              >
+                Update Portofolio
+              </h2>
+              <span
+                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+                >10:00 am - 15:00 pm</span
+              >
+            </div>
+        </div>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">In Progress</h1>
+        <div
+          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+        >
+          <div
+            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+          >
+            <div
+              class="headCard col-span-2 flex justify-between items-center h-7"
+            >
+              <p class="w-max font-medium text-sm text-[#FF8400]">
+                Development
+              </p>
+              <img src="./img/More.png" class="h-9 mr-2" alt="" />
+            </div>
+            <h2
+              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+            >
+              Update Portofolio
+            </h2>
+            <span
+              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+              >10:00 am - 15:00 pm</span
+            >
+          </div>
+            <div
+              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+            >
+              <div
+                class="headCard col-span-2 flex justify-between items-center h-7"
+              >
+                <p class="w-max font-medium text-sm text-[#FF8400]">
+                  Development
+                </p>
+                <img src="./img/More.png" class="h-9 mr-2" alt="" />
+              </div>
+              <h2
+                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+              >
+                Update Portofolio
+              </h2>
+              <span
+                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+                >10:00 am - 15:00 pm</span
+              >
+            </div>
+        </div>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">Done</h1>
+        <div
+          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+        >
+          <div
+            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+          >
+            <div
+              class="headCard col-span-2 flex justify-between items-center h-7"
+            >
+              <p class="w-max font-medium text-sm text-[#FF8400]">
+                Development
+              </p>
+              <img src="./img/More.png" class="h-9 mr-2" alt="" />
+            </div>
+            <h2
+              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+            >
+              Update Portofolio
+            </h2>
+            <span
+              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+              >10:00 am - 15:00 pm</span
+            >
+          </div>
+            <div
+              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+            >
+              <div
+                class="headCard col-span-2 flex justify-between items-center h-7"
+              >
+                <p class="w-max font-medium text-sm text-[#FF8400]">
+                  Development
+                </p>
+                <img src="./img/More.png" class="h-9 mr-2" alt="" />
+              </div>
+              <h2
+                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+              >
+                Update Portofolio
+              </h2>
+              <span
+                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+                >10:00 am - 15:00 pm</span
+              >
+            </div>
+        </div>
+      </div>
+      </div>
+        
       </div>
     </div>
     <script src="./js/script.js"></script>
