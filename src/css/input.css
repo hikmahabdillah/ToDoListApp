@@ -18,6 +18,9 @@
   .btn-hover {
     @apply cursor-pointer transition-all duration-500 hover:scale-90;
   }
+  .hover-95 {
+    @apply hover:scale-95;
+  }
 }
 
 @layer components {
@@ -28,16 +31,16 @@
     @apply bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center;
   }
   .btn-add {
-    @apply bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max;
+    @apply bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max h-max;
   }
   .badge {
-    @apply font-semibold text-sm px-4 py-1 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center;
+    @apply font-semibold text-sm lg:text-base px-4 py-1 lg:py-2 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none;
   }
   .card-place {
-    @apply rounded-lg col-span-2 flex gap-4 w-full overflow-x-auto;
+    @apply rounded-lg col-span-2 flex gap-4 w-full lg:w-11/12 overflow-x-auto md:overflow-y-auto md:overflow-x-hidden md:flex-col md:items-center md:col-span-1 md:rounded-xl md:bg-slate-50 md:shadow-lg md:p-6 md:h-[350px] md:justify-self-center;
   }
   .card {
-    @apply rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px];
+    @apply rounded-xl drop-shadow-[0_10px_5px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] lg:w-[250px] gap-[-8px];
   }
   .time-badge {
     @apply text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end;

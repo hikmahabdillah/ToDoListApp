@@ -44,34 +44,36 @@
         </div>
       </div>
     </div>
-    <!-- Header -->
-    <div class="container p-5 mx-auto">
+    <!-- Container -->
+    <div class="container p-5 md:max-w-[870px] lg:max-w-screen-xl">
       <nav class="flex justify-between p-3 items-center">
         <img src="./img/Logo.png" width="90px" alt="" />
         <img src="./img/Info.png" width="35px" alt="" />
       </nav>
-      <div class="content grid grid-cols-2 gap-5 p-3">
-        <header class="col-span-2 mb-2">
-          <h1 class="font-semibold text-[#FFD423] text-2xl">Good Morning !</h1>
-          <h3 class="font-medium text-slate-50 text-base">Sun, 31 Mar 2024</h3>
+      <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:my-7 md:mx-auto gap-5 p-3 ">
+        <header class="col-span-2 md:col-span-1 mb-2 ">
+          <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
+          <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
         </header>
-        <span
-          class="btn-add btn-hover"
-        >
-          <h3 class="font-semibold text-[#FF8400] text-base">Add Item</h3>
-          <img src="./img/Add.png" alt="" height="30px" />
-        </span>
-        <h4
-          class="badge"
-        >
-          17 Tasks
-        </h4>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">To Do</h1>
+        <div class="flex col-span-2 justify-between md:justify-end md:gap-5 items-center">
+          <span
+            class="btn-add btn-hover"
+          >
+            <h3 class="font-semibold text-[#FF8400] text-base lg:text-lg">Add Item</h3>
+            <img src="./img/Add.png" alt="" height="30px" />
+          </span>
+          <h4
+            class="badge"
+          >
+            17 Tasks
+          </h4>
+        </div>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1">To Do</h1>
         <div
-          class="card-place"
+          class="card-place md:col-start-1 md:row-start-3"
         >
           <div
-            class="card"
+            class="card btn-hover hover-95"
           >
             <div
               class="headCard col-span-2 flex justify-between items-center h-7"
@@ -81,9 +83,7 @@
               </p>
               <img src="./img/More.png" class="h-9 mr-2" alt="" />
             </div>
-            <h2
-              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
-            >
+            <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
               Update Portofolio
             </h2>
             <span
@@ -92,7 +92,7 @@
             >
           </div>
             <div
-              class="card"
+              class="card btn-hover hover-95"
             >
               <div
                 class="headCard col-span-2 flex justify-between items-center h-7"
@@ -113,12 +113,12 @@
               >
             </div>
         </div>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">In Progress</h1>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-2">In Progress</h1>
         <div
-          class="card-place"
+          class="card-place md:col-start-2 md:row-start-3"
         >
           <div
-            class="card"
+            class="card btn-hover hover-95"
           >
             <div
               class="headCard col-span-2 flex justify-between items-center h-7"
@@ -139,7 +139,7 @@
             >
           </div>
             <div
-              class="card bg-[#562D00]"
+              class="card btn-hover hover-95 bg-[#562D00]"
             >
               <div
                 class="headCard col-span-2 flex justify-between items-center h-7"
@@ -160,12 +160,12 @@
               >
             </div>
         </div>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">Done</h1>
+        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-3">Done</h1>
         <div
-          class="card-place"
+          class="card-place md:col-start-3 md:row-start-3"
         >
         <div
-        class="card bg-[#331A00]"
+        class="card btn-hover hover-95 bg-[#331A00]"
       >
         <div
           class="headCard col-span-2 flex justify-between items-center h-7"
