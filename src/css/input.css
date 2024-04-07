@@ -9,6 +9,39 @@
     opacity: 0;
     z-index: -1;
   }
+  .bg-overlay {
+    @apply bg-gradient-to-b from-[#E1C659] to-[#BC6100];
+  }
+  .bg-body {
+    @apply bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400];
+  }
+  .btn-hover {
+    @apply cursor-pointer transition-all duration-500 hover:scale-90;
+  }
+}
+
+@layer components {
+  .overlay {
+    @apply flex flex-1 flex-wrap justify-center items-center z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden;
+  }
+  .btn-continue {
+    @apply bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center;
+  }
+  .btn-add {
+    @apply bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max;
+  }
+  .badge {
+    @apply font-semibold text-sm px-4 py-1 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center;
+  }
+  .card-place {
+    @apply rounded-lg col-span-2 flex gap-4 w-full overflow-x-auto;
+  }
+  .card {
+    @apply rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px];
+  }
+  .time-badge {
+    @apply text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end;
+  }
 }
 
 body::-webkit-scrollbar {

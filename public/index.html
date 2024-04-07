@@ -7,10 +7,10 @@
     <!-- <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400]">
+  <body class="bg-body">
     <!-- <div class="container mx-auto p-4"></div> -->
     <div
-      class="overlay bg-gradient-to-b from-[#E1C659] to-[#BC6100] flex flex-1 flex-wrap justify-center items-center z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden "
+      class="bg-overlay overlay"
     >
       <div
         class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center"
@@ -36,7 +36,7 @@
             </p>
           </div>
           <span
-            class="btn-continue bg-gradient-to-r from-[#F8D02D] to-[#FF8400] px-6 py-2 mt-5 flex gap-2 rounded-full items-center cursor-pointer transition-all duration-500 hover:scale-90"
+            class="btn-continue btn-hover"
           >
             <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
             <img src="./img/Right Arrow.png" alt=""
@@ -56,22 +56,22 @@
           <h3 class="font-medium text-slate-50 text-base">Sun, 31 Mar 2024</h3>
         </header>
         <span
-          class="bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max"
+          class="btn-add btn-hover"
         >
-          <h3 class="font-semibold text-[#FF8400] text-lg">Add Item</h3>
+          <h3 class="font-semibold text-[#FF8400] text-base">Add Item</h3>
           <img src="./img/Add.png" alt="" height="30px" />
         </span>
         <h4
-          class="font-semibold text-base px-4 py-1 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none justify-self-end self-center"
+          class="badge"
         >
           17 Tasks
         </h4>
         <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">To Do</h1>
         <div
-          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+          class="card-place"
         >
           <div
-            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+            class="card"
           >
             <div
               class="headCard col-span-2 flex justify-between items-center h-7"
@@ -87,12 +87,12 @@
               Update Portofolio
             </h2>
             <span
-              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+              class="time-badge"
               >10:00 am - 15:00 pm</span
             >
           </div>
             <div
-              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+              class="card"
             >
               <div
                 class="headCard col-span-2 flex justify-between items-center h-7"
@@ -108,17 +108,17 @@
                 Update Portofolio
               </h2>
               <span
-                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+                class="time-badge"
                 >10:00 am - 15:00 pm</span
               >
             </div>
         </div>
         <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">In Progress</h1>
         <div
-          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+          class="card-place"
         >
           <div
-            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+            class="card"
           >
             <div
               class="headCard col-span-2 flex justify-between items-center h-7"
@@ -134,78 +134,53 @@
               Update Portofolio
             </h2>
             <span
-              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+              class="time-badge"
               >10:00 am - 15:00 pm</span
             >
           </div>
             <div
-              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
+              class="card bg-[#562D00]"
             >
               <div
                 class="headCard col-span-2 flex justify-between items-center h-7"
               >
-                <p class="w-max font-medium text-sm text-[#FF8400]">
+                <p class="w-max font-medium text-sm text-[#F8D02D]">
                   Development
                 </p>
                 <img src="./img/More.png" class="h-9 mr-2" alt="" />
               </div>
               <h2
-                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
+                class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5"
               >
                 Update Portofolio
               </h2>
               <span
-                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
+                class="time-badge bg-[#FF8400]"
                 >10:00 am - 15:00 pm</span
               >
             </div>
         </div>
         <h1 class="font-semibold text-[#FFD423] text-xl col-span-2">Done</h1>
         <div
-          class="card-place rounded-lg col-span-2 flex gap-4 w-full overflow-hidden"
+          class="card-place"
         >
-          <div
-            class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
-          >
-            <div
-              class="headCard col-span-2 flex justify-between items-center h-7"
-            >
-              <p class="w-max font-medium text-sm text-[#FF8400]">
-                Development
-              </p>
-              <img src="./img/More.png" class="h-9 mr-2" alt="" />
-            </div>
-            <h2
-              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
-            >
-              Update Portofolio
-            </h2>
-            <span
-              class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
-              >10:00 am - 15:00 pm</span
-            >
-          </div>
-            <div
-              class="card rounded-xl drop-shadow-[0_15px_10px_rgba(188,97,0,1)] pt-3 pl-4 grid grid-cols-2 items-center bg-slate-50 min-w-[210px] gap-[-8px]"
-            >
-              <div
-                class="headCard col-span-2 flex justify-between items-center h-7"
-              >
-                <p class="w-max font-medium text-sm text-[#FF8400]">
-                  Development
-                </p>
-                <img src="./img/More.png" class="h-9 mr-2" alt="" />
-              </div>
-              <h2
-                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
-              >
-                Update Portofolio
-              </h2>
-              <span
-                class="text-sm font-medium col-span-2 max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D] justify-self-end"
-                >10:00 am - 15:00 pm</span
-              >
-            </div>
+        <div
+        class="card bg-[#331A00]"
+      >
+        <div
+          class="headCard col-span-2 flex justify-between items-center h-7"
+        >
+          <p class="w-max font-medium text-sm text-[#F8D02D]">
+            Development
+          </p>
+          <img src="./img/More.png" class="h-9 mr-2" alt="" />
+        </div>
+        <h2
+          class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5"
+        >
+          Update Portofolio
+        </h2>
+      </div>
         </div>
       </div>
       <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
