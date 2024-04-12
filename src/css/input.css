@@ -16,8 +16,16 @@
     @apply bg-gradient-to-b from-[#E1C659] to-[#BC6100];
   }
   .bg-overlay-content {
+    @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block -translate-y-full;
+  }
+  .bg-overlay-detail {
+    @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-y-full;
+  }
+
+  .bg-overlay-content-edit {
     @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-x-full;
   }
+
   .bg-body {
     @apply bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400] bg-no-repeat;
   }
@@ -29,6 +37,9 @@
   }
   .hover-btn-ring {
     @apply hover:ring-[#FF8400] hover:ring-2 hover:bg-orange-100 transition-all duration-300 rounded-lg;
+  }
+  .active-btn-ring {
+    @apply active:ring-[#FF8400] active:ring-2 active:bg-orange-100 transition-all duration-300 rounded-lg;
   }
 }
 

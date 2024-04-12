@@ -1,251 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDooo | ToDoList App</title>
-    <!-- <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon"> -->
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body class="bg-body">
-    <!-- <div class="container mx-auto p-4"></div> -->
-    <div
-      class="bg-overlay overlay"
-    >
-      <div
-        class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center"
-      >
-        <img
-          src="./img/Illustration.png"
-          class="max-w-[254px] max-h-[280px] animate-updown w-full drop-shadow-[0_15px_10px_rgba(188,97,0,1)]"
-          alt=""
-        />
-        <div
-          class="greeting flex flex-col justify-center items-center sm:items-start"
-        >
-          <img src="./img/Logo.png" alt="" width="100px" />
-          <div
-            class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80"
-          >
-            <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
-              Organize Your Life, One Task at a Time
-            </h1>
-            <p class="text-neutral-200 text-sm sm:text-base sm:leading-snug">
-              Welcome to my to-do list application, where simplicity meets
-              efficiency. With our user-friendly interface.
-            </p>
-          </div>
-          <span
-            class="btn-continue btn-hover"
-          >
-            <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
-            <img src="./img/Right Arrow.png" alt=""/>
-        </span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDooo | ToDoList App</title>
+  <!-- <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon"> -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="bg-body">
+  <!-- <div class="container mx-auto p-4"></div> -->
+  <div class="bg-overlay overlay">
+    <div class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center">
+      <img src="./img/Illustration.png"
+        class="max-w-[254px] max-h-[280px] animate-updown w-full drop-shadow-[0_15px_10px_rgba(188,97,0,1)]" alt="" />
+      <div class="greeting flex flex-col justify-center items-center sm:items-start">
+        <img src="./img/Logo.png" alt="" width="100px" />
+        <div class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80">
+          <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
+            Organize Your Life, One Task at a Time
+          </h1>
+          <p class="text-neutral-200 text-sm sm:text-base sm:leading-snug">
+            Welcome to my to-do list application, where simplicity meets
+            efficiency. With our user-friendly interface.
+          </p>
         </div>
+        <span class="btn-continue btn-hover">
+          <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
+          <img src="./img/Right Arrow.png" alt="" />
+        </span>
       </div>
     </div>
-    <div class="bg-overlay-content disp">
-      <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
-        <img src="./img/Right Arrow.png" class="back rotate-180 cursor-pointer" alt=""/>
-        <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Add Your New Task</h1>
-        <img src="./img/Info.png" width="35px" alt="" />
-      </div>
-      
+  </div>
 
+  <!-- ADD TASK SECTION -->
+  <div class="bg-overlay-content disp">
+    <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
+      <img src="./img/Right Arrow.png" class="back rotate-180 cursor-pointer" alt="" />
+      <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Add Your New Task</h1>
+      <img src="./img/Info.png" width="35px" alt="" />
+    </div>
     <form class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
         <label for="taskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
-        <input type="text" id="taskName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400" placeholder="Input Task Name" required />
+        <input type="text" id="taskName"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Input Task Name" required />
       </div>
       <div class="mb-3">
         <label for="category" class="block mb-2 text-base font-medium text-white">Category</label>
-        <input type="text" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400" placeholder="Input Category" required />
+        <input type="text" id="category"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Input Category" required />
       </div>
       <div class="mb-3">
         <label for="description" class="block mb-2 text-base font-medium text-white">Description</label>
-        <textarea id="description" rows="4" class="block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400" placeholder="Add Description" maxlength="200"></textarea>
+        <textarea id="description" rows="4"
+          class="block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#F8D02D]">*Max Character : 200 Character</p>
       </div>
-    <button id="dropdownHoverButton" data-dropdown-toggle="dropdown"  class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Add Time<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-      </svg>
+      <button id="dropdownHoverButton" data-dropdown-toggle="dropdown"
+        class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+        type="button">Add Time<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 4 4 4-4" />
+        </svg>
       </button>
       <!-- Dropdown menu -->
       <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
-          <div class="cursor-pointer">
-            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start time:</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <input type="time" id="start-time" class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " min="09:00" max="18:00" value="00:00" required />
+          <div>
+            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
+              time:</label>
+            <div class="relative flex items-center">
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" id="start-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                min="09:00" max="18:00" value="00:00" required />
             </div>
-        </div>
-        <div>
+          </div>
+          <div>
             <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
             <div class="relative">
-                <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
-                    </svg>
-                </div> 
-                <input type="time" id="end-time" class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" min="09:00" max="18:00" value="00:00" required />
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" id="end-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                min="09:00" max="18:00" value="00:00" required />
             </div>
+          </div>
         </div>
-        </div>
-    </div>
-        <button type="submit" class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
+      </div>
+      <button type="submit"
+        class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
     </form>
-            
+  </div>
+
+  <!-- DETAIL TASK SECTION -->
+  <div class="bg-overlay-detail disp">
+    <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
+      <img src="./img/Right Arrow.png" class="back-detail rotate-180 cursor-pointer" alt="" />
+      <span class="header">
+        <h1 class="font-semibold text-slate-50 text-lg lg:text-xl text-center leading-tight">Detail Task</h1>
+        <h2 class="font-medium text-slate-50 text-md lg:text-lg leading-tight">10.00am - 15.00pm</h2>
+      </span>
+      <img src="./img/Info.png" width="35px" alt="" />
     </div>
-    <!-- Container -->
-    <div class="container p-5 md:max-w-[870px] lg:max-w-screen-xl">
-      <nav class="flex justify-between p-3 items-center">
-        <img src="./img/Logo.png" width="90px" alt="" />
-        <img src="./img/Info.png" width="35px" alt="" />
-      </nav>
-      <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:my-7 md:mx-auto gap-5 p-3 ">
-        <header class="col-span-2 md:col-span-1 mb-2 ">
-          <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
-          <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
-        </header>
-        <div class="flex col-span-2 justify-between md:justify-end md:gap-5 items-center">
-          <span
-            class="btn-add btn-hover hover:ring-[#FF8400] hover:ring-2 transition-all duration-300"
-          >
-            <h3 class="font-semibold text-[#FF8400] text-base lg:text-lg">Add Item</h3>
-            <img src="./img/Add.png" alt="" height="30px" />
-          </span>
-          <h4
-            class="badge"
-          >
-            17 Tasks
-          </h4>
-        </div>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1">To Do</h1>
-        <div
-          class="card-place md:col-start-1 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]"
-        >
-          <div
-            class="card btn-hover hover-95"
-          >
-            <div
-              class="headCard col-span-2 flex justify-between items-center h-7"
-            >
-              <p class="w-max font-medium text-sm text-[#FF8400]">
-                Development
-              </p>
-              <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
-            </div>
-            <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
-              Update Portofolio
-            </h2>
-            <span
-              class="time-badge"
-              >10:00 am - 15:00 pm</span
-            >
-          </div>
-            <div
-              class="card btn-hover hover-95"
-            >
-              <div
-                class="headCard col-span-2 flex justify-between items-center h-7"
-              >
-                <p class="w-max font-medium text-sm text-[#FF8400]">
-                  Development
-                </p>
-                <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
-              </div>
-              <h2
-                class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
-              >
-                Update Portofolio
-              </h2>
-              <span
-                class="time-badge"
-                >10:00 am - 15:00 pm</span
-              >
-            </div>
-        </div>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-2">In Progress</h1>
-        <div
-          class="card-place md:col-start-2 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]"
-        >
-          <div
-            class="card btn-hover hover-95"
-          >
-            <div
-              class="headCard col-span-2 flex justify-between items-center h-7"
-            >
-              <p class="w-max font-medium text-sm text-[#FF8400]">
-                Development
-              </p>
-              <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
-            </div>
-            <h2
-              class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5"
-            >
-              Update Portofolio
-            </h2>
-            <span
-              class="time-badge"
-              >10:00 am - 15:00 pm</span
-            >
-          </div>
-            <div
-              class="card btn-hover hover-95 bg-[#562D00]"
-            >
-              <div
-                class="headCard col-span-2 flex justify-between items-center h-7"
-              >
-                <p class="w-max font-medium text-sm text-[#F8D02D]">
-                  Development
-                </p>
-                <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
-              </div>
-              <h2
-                class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5"
-              >
-                Update Portofolio
-              </h2>
-              <span
-                class="time-badge bg-[#FF8400]"
-                >10:00 am - 15:00 pm</span
-              >
-            </div>
-        </div>
-        <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-3">Done</h1>
-        <div
-          class="card-place md:col-start-3 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]"
-        >
-        <div
-        class="card btn-hover hover-95 bg-[#331A00]"
-      >
-        <div
-          class="headCard col-span-2 flex justify-between items-center h-7"
-        >
-          <p class="w-max font-medium text-sm text-[#F8D02D]">
-            Development
-          </p>
-          <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
-        </div>
-        <h2
-          class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5"
-        >
-          Update Portofolio
-        </h2>
+    <div class="detail-content mt-10 max-w-sm px-5 mx-auto flex flex-col gap-4">
+      <div class="detail-head flex justify-between items-center">
+        <span class="title">
+          <p class="w-max font-medium text-sm text-[#FF8400]">Development</p>
+          <h2 class="font-semibold text-slate-50 text-xl col-span-2">Update Portofolio</h2>
+        </span>
+        <img src="./img/Delete.png"
+          class="h-8 p-1 cursor-pointer rounded-lg hover:scale-90 hover:ring-2 hover:ring-orange-500 transition-all duration-300"
+          width="32px" alt="">
       </div>
+      <div class="w-full rounded-xl bg-[#562D00] p-4">
+        <h4 class="w-max font-semibold text-base text-[#FF8400]">Description</h4>
+        <p class="text-sm text-slate-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis corporis
+          ipsam eaque ea nemo molestias est incidunt facere minima excepturi aliquam quas aliquid rerum dolore officia
+          nihil, praesentium odio quos.</p>
+      </div>
+      <div class="barrier">
+        <div class="flex gap-2 items-center">
+          <hr class="border-[1.5px] border-gray-200 w-full rounded-full" />
+          <h4 class="w-max text-nowrap font-semibold text-base text-slate-50">Move To</h4>
+          <hr class="border-[1.5px] border-gray-200 w-full rounded-full" />
         </div>
-      </div>
-      <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
-      </div>
-        
+        <div class="flex gap-4 items-center px-5">
+          <button type="submit"
+            class="block mt-3 w-full max-w-40 text-white bg-[#FF8400] hover:bg-[#c48139] focus:ring-4 focus:ring-[#ff8400dc] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center self-end">In
+            Progress</button>
+          <button type="submit"
+            class="block mt-3 w-full max-w-40 text-white bg-[#9f5200] hover:bg-[#c78238] focus:ring-4 focus:ring-[#ff8400dc] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center self-end">Done</button>
+        </div>
       </div>
     </div>
-    <script src="./js/script.js"></script>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-  </body>
+  </div>
+
+
+  <!-- Container -->
+  <div class="container p-5 md:max-w-[870px] lg:max-w-screen-xl">
+    <nav class="flex justify-between p-3 items-center">
+      <img src="./img/Logo.png" width="90px" alt="" />
+      <img src="./img/Info.png" width="35px" alt="" />
+    </nav>
+    <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:my-7 md:mx-auto gap-5 p-3 ">
+      <header class="col-span-2 md:col-span-1 mb-2 ">
+        <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
+        <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
+      </header>
+      <div class="flex col-span-2 justify-between md:justify-end md:gap-5 items-center">
+        <span class="btn-add btn-hover hover:ring-[#FF8400] hover:ring-2 transition-all duration-300">
+          <h3 class="font-semibold text-[#FF8400] text-base lg:text-lg">Add Item</h3>
+          <img src="./img/Add.png" alt="" height="30px" />
+        </span>
+        <h4 class="badge">
+          17 Tasks
+        </h4>
+      </div>
+      <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1">To Do</h1>
+      <div class="card-place  md:col-start-1 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]">
+        <div class="card relative btn-hover hover-95">
+          <div class="headCard col-span-2 flex justify-between items-center h-7">
+            <p class="w-max font-medium text-sm text-[#FF8400]">
+              Development
+            </p>
+            <img src="./img/More.png" id="dropdownMenuIconHorizontalButton"
+              data-dropdown-toggle="dropdownDotsHorizontal" data-dropdown-trigger="hover" class="h-9 mr-2 hover-btn-ring active-btn-ring" alt="" />
+
+            <!-- Dropdown menu -->
+            <div id="dropdownDotsHorizontal"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-max">
+              <div class="flex gap-3 p-3 [&>img]:rounded-lg [&>img]:p-1 [&>img]:bg-[#FF8400]">
+                <img src="./img/Edit.png" class="edit" width="30px" alt="">
+                <img src="./img/Delete.png" width="30px" alt="">
+              </div>
+            </div>
+          </div>
+          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
+            Update Portofolio
+          </h2>
+          <span class="time-badge">10:00 am - 15:00 pm</span>
+        </div>
+        <div class="card btn-hover hover-95">
+          <div class="headCard col-span-2 flex justify-between items-center h-7">
+            <p class="w-max font-medium text-sm text-[#FF8400]">
+              Development
+            </p>
+            <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
+          </div>
+          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
+            Update Portofolio
+          </h2>
+          <span class="time-badge">10:00 am - 15:00 pm</span>
+        </div>
+      </div>
+      <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-2">In Progress</h1>
+      <div class="card-place md:col-start-2 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]">
+        <div class="card btn-hover hover-95">
+          <div class="headCard col-span-2 flex justify-between items-center h-7">
+            <p class="w-max font-medium text-sm text-[#FF8400]">
+              Development
+            </p>
+            <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
+          </div>
+          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
+            Update Portofolio
+          </h2>
+          <span class="time-badge">10:00 am - 15:00 pm</span>
+        </div>
+        <div class="card btn-hover hover-95 bg-[#562D00]">
+          <div class="headCard col-span-2 flex justify-between items-center h-7">
+            <p class="w-max font-medium text-sm text-[#F8D02D]">
+              Development
+            </p>
+            <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
+          </div>
+          <h2 class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5">
+            Update Portofolio
+          </h2>
+          <span class="time-badge bg-[#FF8400]">10:00 am - 15:00 pm</span>
+        </div>
+      </div>
+      <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-3">Done</h1>
+      <div class="card-place md:col-start-3 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]">
+        <div class="card btn-hover hover-95 bg-[#331A00]">
+          <div class="headCard col-span-2 flex justify-between items-center h-7">
+            <p class="w-max font-medium text-sm text-[#F8D02D]">
+              Development
+            </p>
+            <img src="./img/More.png" class="h-9 mr-2 hover-btn-ring" alt="" />
+          </div>
+          <h2 class="font-semibold text-slate-50 text-xl col-span-2 max-w-[80%] mb-5">
+            Update Portofolio
+          </h2>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
+  </div>
+
+  </div>
+  </div>
+  <script src="./js/script.js"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+
 </html>
