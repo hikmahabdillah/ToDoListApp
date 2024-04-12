@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnContinue = document.querySelector(".btn-continue");
   const overlay = document.querySelector(".overlay");
   const back = document.querySelector(".back");
+  const btnAdd = document.querySelector(".btn-add");
   const bgcontent = document.querySelector(".bg-overlay-content");
 
   btnContinue.addEventListener("click", () => {
@@ -11,8 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   });
 
+  btnAdd.addEventListener("click", () => {
+    bgcontent.classList.remove("disp");
+    bgcontent.style.display = "block";
+    setTimeout(function () {
+      bgcontent.style.transform = "translateX(0)";
+    }, 200);
+  });
+
   back.addEventListener("click", () => {
-    bgcontent.classList.add("disp");
+    bgcontent.style.transform = "translateX(100%)";
     setTimeout(function () {
       bgcontent.style.display = "none";
     }, 400);

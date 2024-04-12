@@ -1994,8 +1994,11 @@ input:checked + .toggle-bg {
 .bg-overlay-content {
   position: fixed;
   z-index: 10;
+  display: block;
   height: 100%;
   width: 100%;
+  --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   overflow: hidden;
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
   --tw-gradient-from: #9F5200 var(--tw-gradient-from-position);

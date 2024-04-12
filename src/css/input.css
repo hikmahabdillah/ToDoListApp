@@ -9,11 +9,14 @@
     opacity: 0;
     z-index: -1;
   }
+  .disp-on {
+    display: block;
+  }
   .bg-overlay {
     @apply bg-gradient-to-b from-[#E1C659] to-[#BC6100];
   }
   .bg-overlay-content {
-    @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden;
+    @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-x-full;
   }
   .bg-body {
     @apply bg-gradient-to-b from-[#562D00] from-30% to-[#FF8400] bg-no-repeat;
