@@ -21,8 +21,7 @@
   .bg-overlay-detail {
     @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-y-full;
   }
-
-  .bg-overlay-content-edit {
+  .bg-overlay-update {
     @apply bg-gradient-to-b from-[#9F5200] from-30% to-[#331A00] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-x-full;
   }
 

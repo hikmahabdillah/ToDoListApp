@@ -61,7 +61,7 @@
           placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#F8D02D]">*Max Character : 200 Character</p>
       </div>
-      <button id="dropdownHoverButton" data-dropdown-toggle="dropdown"
+      <button id="dropdownButton" data-dropdown-toggle="dropdownTime"
         class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
         type="button">Add Time<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
           fill="none" viewBox="0 0 10 6">
@@ -70,7 +70,85 @@
         </svg>
       </button>
       <!-- Dropdown menu -->
-      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
+      <div id="dropdownTime" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
+        <div class="flex gap-2 p-3">
+          <div>
+            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
+              time:</label>
+            <div class="relative flex items-center">
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" id="start-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                min="09:00" max="18:00" value="00:00" required />
+            </div>
+          </div>
+          <div>
+            <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" id="end-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                min="09:00" max="18:00" value="00:00" required />
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit"
+        class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
+    </form>
+  </div>
+
+  <!-- UPDATE TASK SECTION -->
+  <div class="bg-overlay-update disp">
+    <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
+      <img src="./img/Right Arrow.png" class="back-edit rotate-180 cursor-pointer" alt="" />
+      <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Update Your Task</h1>
+      <img src="./img/Info.png" width="35px" alt="" />
+    </div>
+    <form class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
+      <div class="mb-3">
+        <label for="taskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
+        <input type="text" id="taskName"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Input Task Name" required />
+      </div>
+      <div class="mb-3">
+        <label for="category" class="block mb-2 text-base font-medium text-white">Category</label>
+        <input type="text" id="category"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Input Category" required />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="block mb-2 text-base font-medium text-white">Description</label>
+        <textarea id="description" rows="4"
+          class="block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+          placeholder="Add Description" maxlength="200"></textarea>
+        <p id="helper-text-explanation" class="mt-1 text-sm text-[#F8D02D]">*Max Character : 200 Character</p>
+      </div>
+      <button id="dropdownHoverButton" data-dropdown-toggle="dropdownTime2"
+        class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+        type="button">Add Time<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 4 4 4-4" />
+        </svg>
+      </button>
+      <!-- Dropdown menu -->
+      <div id="dropdownTime2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
             <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
@@ -162,7 +240,7 @@
       <img src="./img/Logo.png" width="90px" alt="" />
       <img src="./img/Info.png" width="35px" alt="" />
     </nav>
-    <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:my-7 md:mx-auto gap-5 p-3 ">
+    <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:mt-7 md:mx-auto gap-5 p-3 ">
       <header class="col-span-2 md:col-span-1 mb-2 ">
         <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
         <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
@@ -184,23 +262,24 @@
               Development
             </p>
             <img src="./img/More.png" id="dropdownMenuIconHorizontalButton"
-              data-dropdown-toggle="dropdownDotsHorizontal" data-dropdown-trigger="hover" class="h-9 mr-2 hover-btn-ring active-btn-ring" alt="" />
-
-            <!-- Dropdown menu -->
-            <div id="dropdownDotsHorizontal"
-              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-max">
-              <div class="flex gap-3 p-3 [&>img]:rounded-lg [&>img]:p-1 [&>img]:bg-[#FF8400]">
-                <img src="./img/Edit.png" class="edit" width="30px" alt="">
-                <img src="./img/Delete.png" width="30px" alt="">
-              </div>
-            </div>
+              data-dropdown-toggle="dropdownDotsHorizontal" data-dropdown-trigger="hover"
+              class="h-9 mr-2 hover-btn-ring active-btn-ring" alt="" />
           </div>
           <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mb-5">
             Update Portofolio
           </h2>
           <span class="time-badge">10:00 am - 15:00 pm</span>
         </div>
-        <div class="card btn-hover hover-95">
+        <!-- Dropdown menu -->
+        <div id="dropdownDotsHorizontal"
+          class="z-[5] relative hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-max">
+          <div class="flex gap-3 p-3 [&>img]:rounded-lg [&>img]:p-1 [&>img]:bg-[#FF8400]">
+            <img src="./img/Edit.png" class="edit" width="30px" alt="">
+            <img src="./img/Delete.png" width="30px" alt="">
+          </div>
+        </div>
+
+        <!-- <div class="card btn-hover hover-95">
           <div class="headCard col-span-2 flex justify-between items-center h-7">
             <p class="w-max font-medium text-sm text-[#FF8400]">
               Development
@@ -211,11 +290,12 @@
             Update Portofolio
           </h2>
           <span class="time-badge">10:00 am - 15:00 pm</span>
-        </div>
+        </div> -->
       </div>
+
       <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-2">In Progress</h1>
       <div class="card-place md:col-start-2 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]">
-        <div class="card btn-hover hover-95">
+        <!-- <div class="card btn-hover hover-95">
           <div class="headCard col-span-2 flex justify-between items-center h-7">
             <p class="w-max font-medium text-sm text-[#FF8400]">
               Development
@@ -238,11 +318,12 @@
             Update Portofolio
           </h2>
           <span class="time-badge bg-[#FF8400]">10:00 am - 15:00 pm</span>
-        </div>
+        </div> -->
       </div>
+
       <h1 class="font-semibold text-[#FFD423] text-xl col-span-2 md:col-span-1 md:col-start-3">Done</h1>
       <div class="card-place md:col-start-3 md:row-start-3 md:[&>.card]:border-2 md:[&>.card]:border-[#FF8400]">
-        <div class="card btn-hover hover-95 bg-[#331A00]">
+        <!-- <div class="card btn-hover hover-95 bg-[#331A00]">
           <div class="headCard col-span-2 flex justify-between items-center h-7">
             <p class="w-max font-medium text-sm text-[#F8D02D]">
               Development
@@ -253,9 +334,11 @@
             Update Portofolio
           </h2>
         </div>
-      </div>
+      </div> -->
     </div>
-    <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
+    <footer class="col-span-3">
+      <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
+    </footer>
   </div>
 
   </div>

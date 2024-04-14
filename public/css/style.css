@@ -1288,8 +1288,16 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.z-\[5\] {
+  z-index: 5;
+}
+
 .col-span-2 {
   grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
 }
 
 .mx-auto {
@@ -2091,7 +2099,7 @@ input:checked + .toggle-bg {
   transition-duration: 500ms;
 }
 
-.bg-overlay-content-edit {
+.bg-overlay-update {
   position: fixed;
   z-index: 10;
   display: block;
@@ -2465,6 +2473,10 @@ body::-webkit-scrollbar-thumb {
   .md\:my-7 {
     margin-top: 1.75rem;
     margin-bottom: 1.75rem;
+  }
+
+  .md\:mt-7 {
+    margin-top: 1.75rem;
   }
 
   .md\:max-w-5xl {

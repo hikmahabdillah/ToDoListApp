@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgdetail = document.querySelector(".bg-overlay-detail");
   const backdetail = document.querySelector(".back-detail");
   const card = document.querySelector(".card");
-  const bgeditcontent = document.querySelector(".bg-overlay-content-edit");
+  const bgeditcontent = document.querySelector(".bg-overlay-update");
   const dropdownHorizon = document.querySelector("#dropdownDotsHorizontal");
 
   btnContinue.addEventListener("click", () => {
@@ -49,20 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   });
 
-  // edit.addEventListener("click", () => {
-  //   dropdownHorizon.style.display = "none";
-  //   bgeditcontent.classList.remove("disp");
-  //   bgeditcontent.style.display = "block";
-  //   setTimeout(function () {
-  //     bgeditcontent.style.transform = "translateX(0)";
-  //   }, 200);
-  // });
+  edit.addEventListener("click", () => {
+    bgeditcontent.classList.remove("disp");
+    bgeditcontent.style.display = "block";
+    setTimeout(function () {
+      bgeditcontent.style.transform = "translateX(0)";
+    }, 200);
+  });
 
-  // backedit.addEventListener("click", () => {
-  //   bgeditcontent.style.transform = "translateX(100%)";
-  //   setTimeout(function () {
-  //     dropdownHorizon.style.display = "block";
-  //     bgeditcontent.style.display = "none";
-  //   }, 400);
-  // });
+  backedit.addEventListener("click", () => {
+    bgeditcontent.style.transform = "translateX(100%)";
+    setTimeout(function () {
+      bgeditcontent.style.display = "none";
+    }, 400);
+  });
 });
