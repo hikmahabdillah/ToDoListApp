@@ -41,7 +41,7 @@
       <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Add Your New Task</h1>
       <img src="./img/Info.png" width="35px" alt="" />
     </div>
-    <form class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
+    <form id="addTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
         <label for="taskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
         <input type="text" id="taskName"
@@ -70,7 +70,8 @@
         </svg>
       </button>
       <!-- Dropdown menu -->
-      <div id="dropdownTime" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
+      <div id="dropdownTime"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
             <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
@@ -84,9 +85,9 @@
                     clip-rule="evenodd" />
                 </svg>
               </div>
-              <input type="time" id="start-time"
+              <input type="time" name="startTime" id="start-time"
                 class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                min="09:00" max="18:00" value="00:00" required />
+                 value="00:00" />
             </div>
           </div>
           <div>
@@ -100,15 +101,15 @@
                     clip-rule="evenodd" />
                 </svg>
               </div>
-              <input type="time" id="end-time"
+              <input type="time" name="endTime" id="end-time"
                 class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                min="09:00" max="18:00" value="00:00" required />
+                 value="00:00"/>
             </div>
           </div>
         </div>
       </div>
       <button type="submit"
-        class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
+        class="addtask-btn block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
     </form>
   </div>
 
@@ -148,7 +149,8 @@
         </svg>
       </button>
       <!-- Dropdown menu -->
-      <div id="dropdownTime2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
+      <div id="dropdownTime2"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
             <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
@@ -191,6 +193,38 @@
   </div>
 
   <!-- DETAIL TASK SECTION -->
+  <div id="popup-modal" tabindex="-1"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-md max-h-full">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <button type="button"
+        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        data-modal-hide="popup-modal">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+        <span class="sr-only">Close modal</span>
+      </button>
+      <div class="p-4 md:p-5 text-center">
+        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this task?</h3>
+        <button data-modal-hide="popup-modal" type="button"
+          class="delete-btn text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+          Yes, I'm sure
+        </button>
+        <button data-modal-hide="popup-modal" type="button"
+          class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
+          cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="bg-overlay-detail disp">
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.png" class="back-detail rotate-180 cursor-pointer" alt="" />
@@ -206,7 +240,7 @@
           <p class="w-max font-medium text-sm text-[#FF8400]">Development</p>
           <h2 class="font-semibold text-slate-50 text-xl col-span-2">Update Portofolio</h2>
         </span>
-        <img src="./img/Delete.png"
+        <img src="./img/Delete.png" data-modal-target="popup-modal" data-modal-toggle="popup-modal" 
           class="h-8 p-1 cursor-pointer rounded-lg hover:scale-90 hover:ring-2 hover:ring-orange-500 transition-all duration-300"
           width="32px" alt="">
       </div>
@@ -245,6 +279,21 @@
         <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
         <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
       </header>
+      <div id="alert-3" class="hidden items-center col-span-2 md:col-span-2 p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span class="sr-only">Info</span>
+        <div class="ms-3 text-sm font-medium">
+          A simple info alert with an <a href="#" class="font-semibold underline hover:no-underline">example link</a>. Give it a click if you like.
+        </div>
+        <button type="button" class="close-btn ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+          <span class="sr-only">Close</span>
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+        </button>
+      </div>
       <div class="flex col-span-2 justify-between md:justify-end md:gap-5 items-center">
         <span class="btn-add btn-hover hover:ring-[#FF8400] hover:ring-2 transition-all duration-300">
           <h3 class="font-semibold text-[#FF8400] text-base lg:text-lg">Add Item</h3>
@@ -275,7 +324,7 @@
           class="z-[5] relative hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-max">
           <div class="flex gap-3 p-3 [&>img]:rounded-lg [&>img]:p-1 [&>img]:bg-[#FF8400]">
             <img src="./img/Edit.png" class="edit" width="30px" alt="">
-            <img src="./img/Delete.png" width="30px" alt="">
+            <img src="./img/Delete.png" data-modal-target="popup-modal" data-modal-toggle="popup-modal" width="30px" alt="">
           </div>
         </div>
 
@@ -335,11 +384,11 @@
           </h2>
         </div>
       </div> -->
+      </div>
+      <footer class="col-span-3">
+        <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
+      </footer>
     </div>
-    <footer class="col-span-3">
-      <h2 class="text-base font-medium text-center pb-3 pt-8 text-slate-50">Build & Design By Hikmah Aldrin</h2>
-    </footer>
-  </div>
 
   </div>
   </div>

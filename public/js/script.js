@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const backdetail = document.querySelector(".back-detail");
   const card = document.querySelector(".card");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
-  const dropdownHorizon = document.querySelector("#dropdownDotsHorizontal");
+  const btnDelete = document.querySelector(".delete-btn");
+  const submitAddBtn = document.querySelector(".addtask-btn");
+  const closeBtn = document.querySelector(".close-btn");
+  const form = document.getElementById("addTask");
 
   btnContinue.addEventListener("click", () => {
     overlay.classList.add("disp");
@@ -62,5 +65,35 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(function () {
       bgeditcontent.style.display = "none";
     }, 400);
+  });
+
+  btnDelete.addEventListener("click", () => {
+    // let id = document.querySelector("#id").value;
+    bgdetail.style.transform = "translateY(100%)";
+    setTimeout(function () {
+      bgdetail.style.display = "none";
+    }, 400);
+  });
+
+  // submitAddBtn.addEventListener("click", () => {
+
+  // });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    bgcontent.style.transform = "translateY(-100%)";
+    setTimeout(function () {
+      bgcontent.style.display = "none";
+      document.querySelector("#alert-3").style.display = "flex";
+      document.querySelector("#alert-3").style.opacity = "1";
+      document.querySelector("#alert-3").classList.remove("hidden");
+    }, 400);
+    form.reset();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    setTimeout(function () {
+      document.querySelector("#alert-3").style.display = "none";
+    }, 200);
   });
 });
