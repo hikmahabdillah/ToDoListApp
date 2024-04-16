@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnDelete = document.querySelector(".delete-btn");
   const submitAddBtn = document.querySelector(".addtask-btn");
   const closeBtn = document.querySelector(".close-btn");
-  const form = document.getElementById("addTask");
+  const formAdd = document.getElementById("addTask");
+  const formUpdate = document.getElementById("updateTask");
 
   btnContinue.addEventListener("click", () => {
     overlay.classList.add("disp");
@@ -72,6 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
     bgdetail.style.transform = "translateY(100%)";
     setTimeout(function () {
       bgdetail.style.display = "none";
+      document.querySelector("span.alert").textContent =
+        "Task has been successfully deleted!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
     }, 400);
   });
 
@@ -79,21 +85,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // });
 
-  form.addEventListener("submit", (event) => {
+  formAdd.addEventListener("submit", (event) => {
     event.preventDefault();
     bgcontent.style.transform = "translateY(-100%)";
     setTimeout(function () {
       bgcontent.style.display = "none";
-      document.querySelector("#alert-3").style.display = "flex";
-      document.querySelector("#alert-3").style.opacity = "1";
-      document.querySelector("#alert-3").classList.remove("hidden");
+      document.querySelector("span.alert").textContent =
+        "Task has been successfully added!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
     }, 400);
-    form.reset();
+    formAdd.reset();
+  });
+
+  formUpdate.addEventListener("submit", (event) => {
+    event.preventDefault();
+    bgeditcontent.style.transform = "translateX(100%)";
+    setTimeout(function () {
+      bgeditcontent.style.display = "none";
+      document.querySelector("span.alert").textContent =
+        "Task has been successfully updated!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
+    }, 400);
+    formUpdate.reset();
   });
 
   closeBtn.addEventListener("click", () => {
     setTimeout(function () {
-      document.querySelector("#alert-3").style.display = "none";
+      document.querySelector("#sticky-banner").style.display = "none";
     }, 200);
   });
 });
