@@ -58,10 +58,10 @@
     @apply font-semibold text-sm lg:text-base px-4 py-1 lg:py-2 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none;
   }
   .card-place {
-    @apply rounded-lg  h-[450px] col-span-2 flex flex-col gap-4 w-full lg:w-11/12 overflow-y-auto overflow-x-hidden md:items-center md:col-span-1 md:rounded-xl md:bg-slate-50 md:shadow-lg md:p-6 md:h-[350px] md:justify-self-center;
+    @apply rounded-lg h-[450px] col-span-2 flex flex-col md:flex-row md:flex-wrap gap-4 w-full overflow-y-auto overflow-x-hidden md:rounded-xl md:bg-slate-50 md:shadow-lg md:p-6;
   }
   .card {
-    @apply rounded-xl p-3 pb-5 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] lg:w-[336px] gap-[-8px];
+    @apply rounded-xl p-3 pb-5 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] max-w-[336px] lg:w-full gap-[-8px] flex-grow flex-shrink basis-[300px] h-max;
   }
   .time-badge {
     @apply text-sm font-medium max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D];

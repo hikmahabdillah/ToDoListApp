@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".overlay");
   const back = document.querySelector(".back");
   const backedit = document.querySelector(".back-edit");
-  const edit = document.querySelector(".edit");
+  const edit = document.querySelectorAll(".edit");
   const btnAdd = document.querySelector(".btn-add");
   const bgcontent = document.querySelector(".bg-overlay-content");
   const bgdetail = document.querySelector(".bg-overlay-detail");
   const backdetail = document.querySelector(".back-detail");
-  const card = document.querySelector(".card");
+  const card = document.querySelectorAll(".card");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
   const btnDelete = document.querySelector(".delete-btn");
   const submitAddBtn = document.querySelector(".addtask-btn");
@@ -38,12 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   });
 
-  card.addEventListener("click", () => {
-    bgdetail.classList.remove("disp");
-    bgdetail.style.display = "block";
-    setTimeout(function () {
-      bgdetail.style.transform = "translateY(0)";
-    }, 200);
+  card.forEach((element) => {
+    element.addEventListener("dblclick", () => {
+      bgdetail.classList.remove("disp");
+      bgdetail.style.display = "block";
+      setTimeout(function () {
+        bgdetail.style.transform = "translateY(0)";
+      }, 200);
+    });
   });
 
   backdetail.addEventListener("click", () => {
@@ -53,12 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   });
 
-  edit.addEventListener("click", () => {
-    bgeditcontent.classList.remove("disp");
-    bgeditcontent.style.display = "block";
-    setTimeout(function () {
-      bgeditcontent.style.transform = "translateX(0)";
-    }, 200);
+  edit.forEach((element) => {
+    element.addEventListener("click", () => {
+      bgeditcontent.classList.remove("disp");
+      bgeditcontent.style.display = "block";
+      setTimeout(function () {
+        bgeditcontent.style.transform = "translateX(0)";
+      }, 200);
+    });
   });
 
   backedit.addEventListener("click", () => {
