@@ -8,6 +8,15 @@
   #sticky-banner {
     @apply transition-all duration-300;
   }
+  .tab {
+    @apply flex justify-between items-center gap-x-4;
+  }
+  .tab-option {
+    @apply font-semibold text-gray-100 opacity-30 text-sm md:text-base transition-all duration-300 cursor-pointer;
+  }
+  .active {
+    @apply text-[#FFD423] opacity-100;
+  }
   .disp {
     opacity: 0;
     z-index: -1;
@@ -61,7 +70,7 @@
     @apply rounded-lg h-[450px] col-span-2 flex flex-col md:flex-row md:flex-wrap gap-4 w-full overflow-y-auto overflow-x-hidden md:rounded-xl md:bg-slate-50 md:shadow-lg md:p-6;
   }
   .card {
-    @apply rounded-xl p-3 pb-5 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] max-w-[336px] lg:w-full gap-[-8px] flex-grow flex-shrink basis-[300px] h-max;
+    @apply rounded-xl p-3 pb-5 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] max-w-[336px] lg:w-full gap-[-8px] md:flex-grow md:flex-shrink md:basis-[300px] h-max;
   }
   .time-badge {
     @apply text-sm font-medium max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D];
