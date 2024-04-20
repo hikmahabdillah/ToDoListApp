@@ -1477,6 +1477,11 @@ input:checked + .toggle-bg {
   height: calc(100% - 1rem);
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
 .max-h-\[280px\] {
   max-height: 280px;
 }
@@ -1725,6 +1730,10 @@ input:checked + .toggle-bg {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-y-5 {

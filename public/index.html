@@ -289,14 +289,17 @@
         <h1 class="font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
         <h3 class="font-medium text-slate-50 text-base lg:text-lg">Sun, 31 Mar 2024</h3>
       </header>
-      <div class="flex col-span-2 justify-between md:justify-end md:gap-5 items-center">
+      <div class="flex flex-wrap gap-4 col-span-2 justify-between md:justify-end md:gap-5 items-center">
         <span class="btn-add btn-hover hover:ring-[#FF8400] hover:ring-2 transition-all duration-300">
           <h3 class="font-semibold text-[#FF8400] text-base lg:text-lg">Add Item</h3>
           <img src="./img/Add.png" alt="" height="30px" />
         </span>
-        <h4 class="badge">
-          17 Tasks
-        </h4>
+        <div class="right flex gap-3 items-center">
+          <h4 class="badge">
+            17 Tasks
+          </h4>
+          <button class="deleteAll p-2 rounded-lg bg-[#FF8400] font-semibold text-[#562D00] w-max h-max leading-none text-sm">Delete All Task</button>
+        </div>
       </div>
       <div class="tabs flex justify-between items-center col-span-2 md:col-span-3">
         <h1 class="font-semibold text-[#FFD423] text-xl">Tasks</h1>
