@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showNumOfTask() {
     const tasks = getTask();
-    numOfTask.textContent = `${Object.keys(tasks).length} Tasks`;
+    const lengthOfTask = Object.keys(tasks).length;
+    numOfTask.textContent = `${lengthOfTask} Tasks`;
+
+    return lengthOfTask;
   }
 
   // EVENT FOR ANIMATION
@@ -153,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   }
 
+  // DELETE TASK FEATURE
   function deleteTask(id) {
     const confirmation = confirm("Are you sure to delete this task?");
     if (confirmation) {
@@ -181,6 +185,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const tasks = getTask();
     // Delete all existing tasks before displaying new ones to avoid the duplicated task on cardplace section
     cardPlace.innerHTML = "";
+
+    // DISPLAY ANIMATION WHEN NO TASK
+    const noTaskAnimation = `
+    <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class="justify-self-center self-center drop-shadow-2xl shadow-neutral-900" width="330px" alt="">
+    <h2 class="max-w-[80%] justify-self-center self-center text-base font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
+
+    if (showNumOfTask() === 0) {
+      cardPlace.innerHTML = noTaskAnimation;
+    }
 
     for (const id in tasks) {
       const task = tasks[id];
