@@ -188,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DISPLAY ANIMATION WHEN NO TASK
     const noTaskAnimation = `
-    <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class="justify-self-center self-center drop-shadow-2xl shadow-neutral-900" width="330px" alt="">
-    <h2 class="max-w-[80%] justify-self-center self-center text-base font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
+    <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class=" drop-shadow-2xl justify-self-center self-center shadow-neutral-900" width="330px" alt="">
+    <h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
 
     if (showNumOfTask() === 0) {
       cardPlace.innerHTML = noTaskAnimation;
