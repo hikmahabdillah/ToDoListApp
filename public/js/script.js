@@ -19,9 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // const btnDelete = document.querySelector(".delete-btn");
   // const formUpdate = document.getElementById("updateTask");
 
-  // numOfTask.addEventListener("click", ()=> {
-
-  // })
+  function showNumOfTask() {
+    const tasks = getTask();
+    const keys = Object.keys(tasks);
+    const taskCount = keys.length;
+    numOfTask.textContent = `${taskCount} Tasks`;
+    console.log(taskCount);
+  }
 
   // EVENT FOR ANIMATION
   btnContinue.addEventListener("click", () => {
@@ -121,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tasks = getTask();
       delete tasks[id];
       saveTask(tasks);
+      showNumOfTask();
       displayTask();
     }
     // document.querySelector("#popup-modal1").style.display = "flex";
@@ -136,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (confirmation) {
       localStorage.removeItem("TODOOAPPS");
       displayTask();
+      showNumOfTask();
       // cardPlace.innerHTML = "";
     }
   });
@@ -182,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
           ${taskTime}
       `;
-      console.log(taskTime);
       // delete
       const deleteIcon = newCard.querySelector(".delete-icon");
       deleteIcon.addEventListener("click", () => {
@@ -247,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formAdd.addEventListener("submit", (event) => {
     addTask();
+    showNumOfTask();
     event.preventDefault();
     bgcontent.style.transform = "translateY(-100%)";
     setTimeout(function () {
@@ -276,5 +282,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.onload = function () {
     displayTask();
+    showNumOfTask();
   };
 });
