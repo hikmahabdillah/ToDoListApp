@@ -96,27 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
     saveTask(tasks);
   }
 
-  // EDIT TASK
-  // function editTask(id, taskName, description, startTime, endTime, isComplete) {
-  //   const tasks = getTask();
-  //   if (tasks[id]) {
-  //     tasks[id] = {
-  //       id,
-  //       taskName,
-  //       description,
-  //       startTime,
-  //       endTime,
-  //       isComplete,
-  //     };
-  //     saveTask(tasks);
-  //   }
+  // // GET ID
+  // function getTaskById(id) {
+  //   const tasks = loadTasks();
+  //   return tasks[id];
   // }
-
-  // GET ID
-  function getTaskById(id) {
-    const tasks = loadTasks();
-    return tasks[id];
-  }
 
   // ADD TASK FEATURE
   function addTask() {
@@ -129,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayTask();
   }
 
+  // UPDATE TASK FEATURE
   function updateTask(id) {
     let newtaskName = document.querySelector("input#updateTaskName").value;
     let newstartTime = document.querySelector(
@@ -140,7 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let newdescriptionTask = document.querySelector(
       "textarea#updateDescription"
     ).value;
+
     const tasks = getTask();
+
     if (tasks[id]) {
       tasks[id] = {
         id,
@@ -153,6 +140,17 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTask(tasks);
       displayTask();
     }
+
+    // close form and display alert when update successful
+    bgeditcontent.style.transform = "translateX(100%)";
+    setTimeout(function () {
+      bgeditcontent.style.display = "none";
+      document.querySelector("span.alert").textContent =
+        "Task has been successfully updated!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
+    }, 400);
   }
 
   function deleteTask(id) {
@@ -164,9 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showNumOfTask();
       displayTask();
     }
-    // document.querySelector("#popup-modal1").style.display = "flex";
-    // document.querySelector("#popup-modal1").style.backgroundColor =
-    //   "rgba(0, 0, 0, 0.5)";
   }
 
   // REMOVE ALL TASK FROM LOCAL STORAGE
@@ -211,63 +206,65 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="headCard col-span-2 flex justify-between items-center h-7">
           <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
           <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
-            <img src="./img/Edit2.png" data-id="${id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+            <img src="./img/Edit2.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
             <img src="./img/Delete2.png" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
           </div>
         </div>
         <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
         <p class="text-gray-600 text-sm col-span-2 line-clamp-2 text-ellipsis max-w-[95%] mb-4">${task.description}</p>
         <div class="flex items-center me-4 col-span-2 justify-self-end">
-          <input id="orange-checkbox" type="checkbox" value="" class="w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
+          <input id="orange-checkbox" type="checkbox" class="w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
           <label for="orange-checkbox" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
         </div>
           ${taskTime}
       `;
-      // update
-      const updateIcon = newCard.querySelector(".edit");
-      const updateName = document.querySelector("#updateTaskName");
-      const updateDescription = document.querySelector(
-        "textarea#updateDescription"
-      );
-      updateIcon.addEventListener("click", (e) => {
-        // const idTask = `${task.id}`;
-        const id = e.target.dataset.id;
-        const task = getTask()[id];
 
-        updateName.value = `${task.taskName}`;
-        updateDescription.value = `${task.description}`;
-        const formUpdate = document.getElementById("updateTask");
-        formUpdate.reset();
+      // update
+      const updateIcon = newCard.querySelectorAll(".edit");
+      const formUpdate = document.getElementById("updateTask");
+
+      updateIcon.forEach((updateBtn) => {
+        updateBtn.addEventListener("click", () => {
+          // get id from each of task
+          const taskId = updateBtn.getAttribute("data-id");
+          // get task data of selected task
+          const task = tasks[taskId];
+
+          // reassign value of field on form update
+          document.querySelector("input#updateTaskName").value = task.taskName;
+          document.querySelector('input[name="updateStartTime"]').value =
+            task.startTime;
+          document.querySelector('input[name="updateEndTime"]').value =
+            task.endTime;
+          document.querySelector("textarea#updateDescription").value =
+            task.description;
+          document.getElementById("updateTaskId").value = taskId;
+
+          // display form update
+          bgeditcontent.classList.remove("disp");
+          bgeditcontent.style.display = "block";
+          setTimeout(function () {
+            bgeditcontent.style.transform = "translateX(0)";
+          }, 200);
+        });
 
         formUpdate.addEventListener("submit", (event) => {
           event.preventDefault();
-          updateTask(task.id);
-          bgeditcontent.style.transform = "translateX(100%)";
-          setTimeout(function () {
-            bgeditcontent.style.display = "none";
-            document.querySelector("span.alert").textContent =
-              "Task has been successfully updated!";
-            document.querySelector("#sticky-banner").style.display = "flex";
-            document.querySelector("#sticky-banner").style.opacity = "1";
-            document.querySelector("#sticky-banner").classList.remove("hidden");
-          }, 400);
+
+          //get the task id value that will be updated
+          const taskId = document.getElementById("updateTaskId").value;
+          updateTask(taskId);
         });
 
-        bgeditcontent.classList.remove("disp");
-        bgeditcontent.style.display = "block";
-        setTimeout(function () {
-          bgeditcontent.style.transform = "translateX(0)";
-        }, 200);
-      });
+        // delete
+        const deleteIcon = newCard.querySelector(".delete-icon");
+        deleteIcon.addEventListener("click", () => {
+          deleteTask(task.id);
+        });
 
-      // delete
-      const deleteIcon = newCard.querySelector(".delete-icon");
-      deleteIcon.addEventListener("click", () => {
-        deleteTask(task.id);
+        // APPEND NEW ELEMENT TO PARENT
+        cardPlace.appendChild(newCard);
       });
-
-      // APPEND NEW ELEMENT TO PARENT
-      cardPlace.appendChild(newCard);
     }
   }
 
@@ -326,21 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
     formAdd.reset();
   });
-
-  // formUpdate.addEventListener("submit", (event) => {
-  //   updateTask(task.id);
-  //   event.preventDefault();
-  //   bgeditcontent.style.transform = "translateX(100%)";
-  //   setTimeout(function () {
-  //     bgeditcontent.style.display = "none";
-  //     document.querySelector("span.alert").textContent =
-  //       "Task has been successfully updated!";
-  //     document.querySelector("#sticky-banner").style.display = "flex";
-  //     document.querySelector("#sticky-banner").style.opacity = "1";
-  //     document.querySelector("#sticky-banner").classList.remove("hidden");
-  //   }, 400);
-  //   formUpdate.reset();
-  // });
 
   window.onload = function () {
     displayTask();
