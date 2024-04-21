@@ -44,13 +44,13 @@
     <form id="addTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
         <label for="taskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
-        <input type="text" name="task-name"
+        <input id="taskName" type="text" name="task-name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
           placeholder="Input Task Name" required />
       </div>
       <div class="mb-3">
         <label for="description" class="block mb-2 text-base font-medium text-white">Description</label>
-        <textarea name="task-description" rows="4"
+        <textarea id="description" name="task-description" rows="4"
           class="description block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
           placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#F8D02D]">*Max Character : 200 Character</p>
@@ -116,14 +116,14 @@
     </div>
     <form id="updateTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
-        <label for="taskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
-        <input type="text" id="taskName"
+        <label for="updateTaskName" class="block mb-2 text-base font-medium text-white">Task Name</label>
+        <input type="text" id="updateTaskName"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
           placeholder="Input Task Name" required />
       </div>
       <div class="mb-3">
-        <label for="description" class="block mb-2 text-base font-medium text-white">Description</label>
-        <textarea id="description" rows="4"
+        <label for="updateDescription" class="block mb-2 text-base font-medium text-white">Description</label>
+        <textarea id="updateDescription" rows="4"
           class="block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
           placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#F8D02D]">*Max Character : 200 Character</p>
@@ -152,7 +152,7 @@
                   clip-rule="evenodd" />
               </svg>
             </div>
-            <input type="time" name="startTime" id="start-time"
+            <input type="time" name="updateStartTime" id="start-time"
               class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               value="00:00" />
           </div>
@@ -168,7 +168,7 @@
                   clip-rule="evenodd" />
               </svg>
             </div>
-            <input type="time" name="endTime" id="end-time"
+            <input type="time" name="updateEndTime" id="end-time"
               class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value="00:00" />
           </div>

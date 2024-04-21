@@ -10,21 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab-option");
   const numOfTask = document.querySelector(".badge");
 
-  // const backedit = document.querySelector(".back-edit");
+  const backedit = document.querySelector(".back-edit");
   // const edit = document.querySelectorAll(".edit");
   // const bgdetail = document.querySelector(".bg-overlay-detail");
   // const backdetail = document.querySelector(".back-detail");
   // const card = document.querySelectorAll(".card");
-  // const bgeditcontent = document.querySelector(".bg-overlay-update");
+  const bgeditcontent = document.querySelector(".bg-overlay-update");
   // const btnDelete = document.querySelector(".delete-btn");
-  // const formUpdate = document.getElementById("updateTask");
 
   function showNumOfTask() {
     const tasks = getTask();
-    const keys = Object.keys(tasks);
-    const taskCount = keys.length;
-    numOfTask.textContent = `${taskCount} Tasks`;
-    console.log(taskCount);
+    numOfTask.textContent = `${Object.keys(tasks).length} Tasks`;
   }
 
   // EVENT FOR ANIMATION
@@ -63,6 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   });
 
+  backedit.addEventListener("click", () => {
+    bgeditcontent.style.transform = "translateX(100%)";
+    setTimeout(function () {
+      bgeditcontent.style.display = "none";
+    }, 400);
+  });
+
   // LOAD TASK FROM LOCAL STORAGE
   function loadTasks() {
     const tasks = localStorage.getItem("TODOOAPPS");
@@ -93,6 +96,22 @@ document.addEventListener("DOMContentLoaded", () => {
     saveTask(tasks);
   }
 
+  // EDIT TASK
+  // function editTask(id, taskName, description, startTime, endTime, isComplete) {
+  //   const tasks = getTask();
+  //   if (tasks[id]) {
+  //     tasks[id] = {
+  //       id,
+  //       taskName,
+  //       description,
+  //       startTime,
+  //       endTime,
+  //       isComplete,
+  //     };
+  //     saveTask(tasks);
+  //   }
+  // }
+
   // GET ID
   function getTaskById(id) {
     const tasks = loadTasks();
@@ -110,15 +129,32 @@ document.addEventListener("DOMContentLoaded", () => {
     displayTask();
   }
 
-  // DELETE TASK BY ID
-  // document.querySelector(".delete").addEventListener("click", () => {
-  //   const tasks = getTask();
+  function updateTask(id) {
+    let newtaskName = document.querySelector("input#updateTaskName").value;
+    let newstartTime = document.querySelector(
+      'input[name="updateStartTime"]'
+    ).value;
+    let newendTime = document.querySelector(
+      'input[name="updateEndTime"]'
+    ).value;
+    let newdescriptionTask = document.querySelector(
+      "textarea#updateDescription"
+    ).value;
+    const tasks = getTask();
+    if (tasks[id]) {
+      tasks[id] = {
+        id,
+        taskName: newtaskName,
+        description: newdescriptionTask,
+        startTime: newstartTime,
+        endTime: newendTime,
+        isComplete: false,
+      };
+      saveTask(tasks);
+      displayTask();
+    }
+  }
 
-  //   for (const id in tasks) {
-  //     const task = tasks[id];
-  //     deleteTask(`${task.id}`);
-  //   }
-  // });
   function deleteTask(id) {
     const confirmation = confirm("Are you sure to delete this task?");
     if (confirmation) {
@@ -175,9 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="headCard col-span-2 flex justify-between items-center h-7">
           <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
           <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
-            <img src="./img/Edit2.png" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+            <img src="./img/Edit2.png" data-id="${id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
             <img src="./img/Delete2.png" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
-            
           </div>
         </div>
         <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
@@ -188,6 +223,43 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
           ${taskTime}
       `;
+      // update
+      const updateIcon = newCard.querySelector(".edit");
+      const updateName = document.querySelector("#updateTaskName");
+      const updateDescription = document.querySelector(
+        "textarea#updateDescription"
+      );
+      updateIcon.addEventListener("click", (e) => {
+        // const idTask = `${task.id}`;
+        const id = e.target.dataset.id;
+        const task = getTask()[id];
+
+        updateName.value = `${task.taskName}`;
+        updateDescription.value = `${task.description}`;
+        const formUpdate = document.getElementById("updateTask");
+        formUpdate.reset();
+
+        formUpdate.addEventListener("submit", (event) => {
+          event.preventDefault();
+          updateTask(task.id);
+          bgeditcontent.style.transform = "translateX(100%)";
+          setTimeout(function () {
+            bgeditcontent.style.display = "none";
+            document.querySelector("span.alert").textContent =
+              "Task has been successfully updated!";
+            document.querySelector("#sticky-banner").style.display = "flex";
+            document.querySelector("#sticky-banner").style.opacity = "1";
+            document.querySelector("#sticky-banner").classList.remove("hidden");
+          }, 400);
+        });
+
+        bgeditcontent.classList.remove("disp");
+        bgeditcontent.style.display = "block";
+        setTimeout(function () {
+          bgeditcontent.style.transform = "translateX(0)";
+        }, 200);
+      });
+
       // delete
       const deleteIcon = newCard.querySelector(".delete-icon");
       deleteIcon.addEventListener("click", () => {
@@ -226,13 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // });
 
-  // backedit.addEventListener("click", () => {
-  //   bgeditcontent.style.transform = "translateX(100%)";
-  //   setTimeout(function () {
-  //     bgeditcontent.style.display = "none";
-  //   }, 400);
-  // });
-
   // btnDelete.addEventListener("click", () => {
   //   // let id = document.querySelector("#id").value;
   //   bgdetail.style.transform = "translateY(100%)";
@@ -244,10 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //     document.querySelector("#sticky-banner").style.opacity = "1";
   //     document.querySelector("#sticky-banner").classList.remove("hidden");
   //   }, 400);
-  // });
-
-  // submitAddBtn.addEventListener("click", () => {
-
   // });
 
   formAdd.addEventListener("submit", (event) => {
@@ -267,6 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // formUpdate.addEventListener("submit", (event) => {
+  //   updateTask(task.id);
   //   event.preventDefault();
   //   bgeditcontent.style.transform = "translateX(100%)";
   //   setTimeout(function () {
