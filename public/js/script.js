@@ -168,6 +168,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // ISCOMPLETED
+  function isCompleted(id) {
+    const tasks = getTask();
+    tasks[id].isComplete = !tasks[id].isComplete;
+    saveTask(tasks);
+  }
+
   // REMOVE ALL TASK FROM LOCAL STORAGE
   document.querySelector(".deleteAll").addEventListener("click", () => {
     const confirmation = confirm(
@@ -226,11 +233,36 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
         <p class="text-gray-600 text-sm col-span-2 line-clamp-2 text-ellipsis max-w-[95%] mb-4">${task.description}</p>
         <div class="flex items-center me-4 col-span-2 justify-self-end">
-          <input id="orange-checkbox" type="checkbox" class="w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
-          <label for="orange-checkbox" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
+          <input id="completed-checkbox-${task.id}" type="checkbox" class="complete-checkbox w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
+          <label for="completed-checkbox-${task.id}" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
         </div>
           ${taskTime}
       `;
+
+      // const statusCheck = newCard.querySelectorAll("span.status");
+      const statusCheck = newCard.querySelector("span.status");
+      const completedCheck = newCard.querySelectorAll(".complete-checkbox");
+      completedCheck.forEach((check) => {
+        check.addEventListener("change", function () {
+          let isChecked = check.checked;
+          if (this.checked) {
+            console.log(`check ${task.id} : `, isChecked);
+            isCompleted(task.id);
+            statusCheck.textContent = "Completed";
+          } else {
+            console.log(`check ${task.id} : `, isChecked);
+            isCompleted(task.id);
+            statusCheck.textContent = "InCompleted";
+          }
+        });
+        if (task.isComplete == true) {
+          check.checked = task.isComplete;
+          statusCheck.textContent = "Completed";
+        } else {
+          check.checked = task.isComplete;
+          statusCheck.textContent = "InCompleted";
+        }
+      });
 
       // update
       const updateIcon = newCard.querySelectorAll(".edit");
