@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgeditcontent = document.querySelector(".bg-overlay-update");
   // const btnDelete = document.querySelector(".delete-btn");
 
+  let activeTab = "incompleted";
+
   function showNumOfTask() {
     const tasks = getTask();
     const lengthOfTask = Object.keys(tasks).length;
     numOfTask.textContent = `${lengthOfTask} Tasks`;
-
-    return lengthOfTask;
   }
 
   // EVENT FOR ANIMATION
@@ -42,8 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", function () {
-      tabs.forEach((t) => t.classList.remove("active")); // Hapus kelas aktif dari semua tab
-      this.classList.add("active"); // Tambahkan kelas aktif ke tab yang diklik
+      tabs.forEach((t) => t.classList.remove("active")); // Hremove  all the classes from each element in array
+      this.classList.add("active"); // add active class on button clicked
+      activeTab = this.getAttribute("data-tab"); // specify the active tab
+      displayTask();
     });
   });
 
@@ -198,116 +200,134 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class=" drop-shadow-2xl justify-self-center self-center shadow-neutral-900" width="330px" alt="">
     <h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
 
-    if (showNumOfTask() === 0) {
-      cardPlace.innerHTML = noTaskAnimation;
+    // selection time
+    // IS COMPLETED
+    // filter the task by  completed or not
+    let filteredTasks = [];
+    // if activetab is incompleted, filtered task will be assigned with array of incomplete tasks
+    if (activeTab === "incompleted") {
+      // filters based on the isComplete property which is false.
+      filteredTasks = Object.values(tasks).filter((task) => !task.isComplete);
+    } else if (activeTab === "completed") {
+      // filters based on the isComplete property which is true.
+      filteredTasks = Object.values(tasks).filter((task) => task.isComplete);
     }
+    console.log(filteredTasks);
 
-    for (const id in tasks) {
-      const task = tasks[id];
-
-      // selection time
-      let taskTime;
-      if (task.startTime !== "00:00" || task.endTime !== "00:00") {
-        taskTime = `
-        <span class="time-badge absolute bottom-0 left-0">
-          ${task.startTime} ${task.startTime.split(":")[0] < 12 ? "am" : "pm"} -
-          ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
-        </span>
-        `;
-      } else {
-        taskTime = "";
-      }
-
+    // if filtered task has length === 0
+    if (filteredTasks.length === 0) {
+      // cardPlace.innerHTML = `<h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 text-[#562D00]">No Tasks found in this category</h2>`;
+      cardPlace.innerHTML = noTaskAnimation;
+    } else {
       // ADD CARD
-      const newCard = document.createElement("div");
-      newCard.classList.add("card", "relative", "btn-hover", "hover-95");
+      // display all task based on filteredTasks
+      filteredTasks.forEach((task) => {
+        let taskTime;
+        // selection time
+        if (task.startTime !== "00:00" || task.endTime !== "00:00") {
+          taskTime = `
+          <span class="time-badge absolute bottom-0 left-0">
+            ${task.startTime} ${
+            task.startTime.split(":")[0] < 12 ? "am" : "pm"
+          } -
+            ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
+          </span>
+          `;
+        } else {
+          taskTime = "";
+        }
 
-      newCard.innerHTML = `
-        <div class="headCard col-span-2 flex justify-between items-center h-7">
-          <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
-          <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
-            <img src="./img/Edit2.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
-            <img src="./img/Delete2.png" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
-          </div>
-        </div>
-        <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
-        <p class="text-gray-600 text-sm col-span-2 line-clamp-2 text-ellipsis max-w-[95%] mb-4">${task.description}</p>
-        <div class="flex items-center me-4 col-span-2 justify-self-end">
-          <input id="completed-checkbox-${task.id}" type="checkbox" class="complete-checkbox w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
-          <label for="completed-checkbox-${task.id}" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
-        </div>
-          ${taskTime}
-      `;
+        const newCard = document.createElement("div");
+        newCard.classList.add("card", "relative", "btn-hover", "hover-95");
+        newCard.innerHTML = `
+         <div class="headCard col-span-2 flex justify-between items-center h-7">
+           <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
+           <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
+             <img src="./img/Edit2.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+             <img src="./img/Delete2.png" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+           </div>
+         </div>
+         <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
+         <p class="text-gray-600 text-sm col-span-2 line-clamp-2 text-ellipsis max-w-[95%] mb-4">${task.description}</p>
+         <div class="flex items-center me-4 col-span-2 justify-self-end">
+           <input id="completed-checkbox-${task.id}" type="checkbox" class="complete-checkbox w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
+           <label for="completed-checkbox-${task.id}" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
+         </div>
+           ${taskTime}
+       `;
 
-      // const statusCheck = newCard.querySelectorAll("span.status");
-      const statusCheck = newCard.querySelector("span.status");
-      const completedCheck = newCard.querySelectorAll(".complete-checkbox");
-      completedCheck.forEach((check) => {
-        check.addEventListener("change", function () {
-          let isChecked = check.checked;
-          if (this.checked) {
-            console.log(`check ${task.id} : `, isChecked);
-            isCompleted(task.id);
+        const statusCheck = newCard.querySelector("span.status");
+        const completedCheck = newCard.querySelectorAll(".complete-checkbox");
+        completedCheck.forEach((check) => {
+          check.addEventListener("change", function () {
+            let isChecked = check.checked;
+            if (this.checked) {
+              console.log(`check ${task.id} : `, isChecked);
+              isCompleted(task.id);
+              statusCheck.textContent = "Completed";
+            } else {
+              console.log(`check ${task.id} : `, isChecked);
+              isCompleted(task.id);
+              statusCheck.textContent = "InCompleted";
+            }
+          });
+          if (task.isComplete == true) {
+            check.checked = task.isComplete;
             statusCheck.textContent = "Completed";
           } else {
-            console.log(`check ${task.id} : `, isChecked);
-            isCompleted(task.id);
+            check.checked = task.isComplete;
             statusCheck.textContent = "InCompleted";
           }
         });
-        if (task.isComplete == true) {
-          check.checked = task.isComplete;
-          statusCheck.textContent = "Completed";
-        } else {
-          check.checked = task.isComplete;
-          statusCheck.textContent = "InCompleted";
-        }
-      });
 
-      // update
-      const updateIcon = newCard.querySelectorAll(".edit");
-      const formUpdate = document.getElementById("updateTask");
+        // update
+        const updateIcon = newCard.querySelectorAll(".edit");
+        const formUpdate = document.getElementById("updateTask");
 
-      updateIcon.forEach((updateBtn) => {
-        updateBtn.addEventListener("click", () => {
-          // get id from each of task
-          const taskId = updateBtn.getAttribute("data-id");
-          // get task data of selected task
-          const task = tasks[taskId];
+        updateIcon.forEach((updateBtn) => {
+          updateBtn.addEventListener("click", () => {
+            // get id from each of task
+            const taskId = updateBtn.getAttribute("data-id");
+            // get task data of selected task
+            const task = tasks[taskId];
 
-          // reassign value of field on form update
-          document.querySelector("input#updateTaskName").value = task.taskName;
-          document.querySelector('input[name="updateStartTime"]').value =
-            task.startTime;
-          document.querySelector('input[name="updateEndTime"]').value =
-            task.endTime;
-          document.querySelector("textarea#updateDescription").value =
-            task.description;
-          document.getElementById("updateTaskId").value = taskId;
+            // reassign value of field on form update
+            document.querySelector("input#updateTaskName").value =
+              task.taskName;
+            document.querySelector('input[name="updateStartTime"]').value =
+              task.startTime;
+            document.querySelector('input[name="updateEndTime"]').value =
+              task.endTime;
+            document.querySelector("textarea#updateDescription").value =
+              task.description;
+            document.getElementById("updateTaskId").value = taskId;
 
-          // display form update
-          bgeditcontent.classList.remove("disp");
-          bgeditcontent.style.display = "block";
-          setTimeout(function () {
-            bgeditcontent.style.transform = "translateX(0)";
-          }, 200);
+            // display form update
+            bgeditcontent.classList.remove("disp");
+            bgeditcontent.style.display = "block";
+            setTimeout(function () {
+              bgeditcontent.style.transform = "translateX(0)";
+            }, 200);
+          });
+
+          formUpdate.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            //get the task id value that will be updated
+            const taskId = document.getElementById("updateTaskId").value;
+            updateTask(taskId);
+          });
+
+          // delete
+          const deleteIcon = newCard.querySelector(".delete-icon");
+          deleteIcon.addEventListener("click", () => {
+            deleteTask(task.id);
+          });
+
+          // APPEND NEW ELEMENT TO PARENT
+          // cardPlace.appendChild(newCard);
         });
 
-        formUpdate.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          //get the task id value that will be updated
-          const taskId = document.getElementById("updateTaskId").value;
-          updateTask(taskId);
-        });
-
-        // delete
-        const deleteIcon = newCard.querySelector(".delete-icon");
-        deleteIcon.addEventListener("click", () => {
-          deleteTask(task.id);
-        });
-
-        // APPEND NEW ELEMENT TO PARENT
         cardPlace.appendChild(newCard);
       });
     }
