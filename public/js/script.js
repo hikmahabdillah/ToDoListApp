@@ -148,14 +148,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // close form and display alert when update successful
     bgeditcontent.style.transform = "translateX(100%)";
+    bgeditcontent.style.display = "none";
+    document.querySelector("span.alert").textContent =
+      "Task has been successfully updated!";
+    document.querySelector("#sticky-banner").style.display = "flex";
+    document.querySelector("#sticky-banner").style.opacity = "1";
+    document.querySelector("#sticky-banner").classList.remove("hidden");
     setTimeout(function () {
-      bgeditcontent.style.display = "none";
-      document.querySelector("span.alert").textContent =
-        "Task has been successfully updated!";
-      document.querySelector("#sticky-banner").style.display = "flex";
-      document.querySelector("#sticky-banner").style.opacity = "1";
-      document.querySelector("#sticky-banner").classList.remove("hidden");
-    }, 400);
+      document.querySelector("#sticky-banner").style.display = "none";
+    }, 3000);
   }
 
   // DELETE TASK FEATURE
@@ -378,14 +379,15 @@ document.addEventListener("DOMContentLoaded", () => {
     showNumOfTask();
     event.preventDefault();
     bgcontent.style.transform = "translateY(-100%)";
+    bgcontent.style.display = "none";
+    document.querySelector("span.alert").textContent =
+      "Task has been successfully added!";
+    document.querySelector("#sticky-banner").style.display = "flex";
+    document.querySelector("#sticky-banner").style.opacity = "1";
+    document.querySelector("#sticky-banner").classList.remove("hidden");
     setTimeout(function () {
-      bgcontent.style.display = "none";
-      document.querySelector("span.alert").textContent =
-        "Task has been successfully added!";
-      document.querySelector("#sticky-banner").style.display = "flex";
-      document.querySelector("#sticky-banner").style.opacity = "1";
-      document.querySelector("#sticky-banner").classList.remove("hidden");
-    }, 400);
+      document.querySelector("#sticky-banner").style.display = "none";
+    }, 3000);
     formAdd.reset();
   });
 
