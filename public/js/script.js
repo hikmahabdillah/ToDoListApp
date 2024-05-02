@@ -24,7 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const tasks = getTask();
     const lengthOfTask = Object.keys(tasks).length;
     numOfTask.textContent = `${lengthOfTask} Tasks`;
+    return lengthOfTask;
   }
+
+  // if (showNumOfTask() > 0 && showNumOfTask() < 4) {
+  //   document.querySelector(".container").classList.add("h-screen");
+  // }
 
   // EVENT FOR ANIMATION
   btnContinue.addEventListener("click", () => {
@@ -201,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class=" drop-shadow-2xl justify-self-center self-center shadow-neutral-900" width="330px" alt="">
     <h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
 
-    // selection time
     // IS COMPLETED
     // filter the task by  completed or not
     let filteredTasks = [];
@@ -213,7 +217,28 @@ document.addEventListener("DOMContentLoaded", () => {
       // filters based on the isComplete property which is true.
       filteredTasks = Object.values(tasks).filter((task) => task.isComplete);
     }
-    console.log(filteredTasks);
+    console.log(filteredTasks.length);
+
+    // FOR BETTER DISPLAY WHEN LIST WITH A FEW TASK
+    const contain = document.querySelector(".container");
+
+    // View Mobile
+    function isMobile() {
+      return window.matchMedia("(max-width: 767px)").matches;
+    }
+
+    let addFullScreen;
+    if (isMobile()) {
+      addFullScreen = filteredTasks.length > 0 && filteredTasks.length < 2;
+    } else {
+      addFullScreen = filteredTasks.length > 1 && filteredTasks.length < 4;
+    }
+
+    if (addFullScreen) {
+      contain.classList.add("h-screen");
+    } else {
+      contain.classList.remove("h-screen");
+    }
 
     // if filtered task has length === 0
     if (filteredTasks.length === 0) {
