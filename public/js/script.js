@@ -166,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DELETE TASK FEATURE
   function deleteTask(id) {
-    const confirmation = confirm("Are you sure to delete this task?");
-    if (confirmation) {
-      const tasks = getTask();
-      delete tasks[id];
-      saveTask(tasks);
-      showNumOfTask();
-      displayTask();
-    }
+    // const confirmation = confirm("Are you sure to delete this task?");
+    // if (confirmation) {
+    //   const tasks = getTask();
+    //   delete tasks[id];
+    //   saveTask(tasks);
+    //   showNumOfTask();
+    //   displayTask();
+    // }
   }
 
   // ISCOMPLETED
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR BETTER DISPLAY WHEN LIST WITH A FEW TASK
     const contain = document.querySelector(".container");
 
-    if (filteredTasks.length > 0 && filteredTasks.length < 4) {
+    if (filteredTasks.length > 0 && filteredTasks.length < 2) {
       contain.classList.add("h-screen");
     } else {
       contain.classList.remove("h-screen");
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
            <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
            <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
              <img src="./img/Edit2.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
-             <img src="./img/Delete2.png" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+             <img src="./img/Delete2.png" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
            </div>
          </div>
          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
@@ -365,6 +365,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const tasks = loadTasks();
     const task = tasks[taskId]; // Get the correct task data
 
+    let taskTime;
+    // selection time
+    if (task.startTime !== "00:00" || task.endTime !== "00:00") {
+      taskTime = `
+            ${task.startTime} ${
+        task.startTime.split(":")[0] < 12 ? "am" : "pm"
+      } -
+            ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
+          `;
+    } else {
+      taskTime = "";
+    }
+
     // Set the detail values
     const detailTitle = document.querySelector(".detail-title");
     const detailDescription = document.querySelector(".detail-description");
@@ -373,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     detailTitle.textContent = task.taskName;
     detailDescription.textContent = task.description;
-    detailTime.textContent = `${task.startTime} - ${task.endTime}`;
+    detailTime.textContent = `${taskTime}`;
     if (task.isComplete == true) {
       detailStatus.textContent = "Completed";
     } else {
