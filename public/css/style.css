@@ -2195,6 +2195,16 @@ input:checked + .toggle-bg {
   color: rgb(254 239 173 / var(--tw-text-opacity));
 }
 
+.text-\[\#03AED2\] {
+  --tw-text-opacity: 1;
+  color: rgb(3 174 210 / var(--tw-text-opacity));
+}
+
+.text-neutral-800 {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));

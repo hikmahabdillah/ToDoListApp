@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const backedit = document.querySelector(".back-edit");
   // const edit = document.querySelectorAll(".edit");
-  // const bgdetail = document.querySelector(".bg-overlay-detail");
-  // const backdetail = document.querySelector(".back-detail");
+  const bgdetail = document.querySelector(".bg-overlay-detail");
+  const backdetail = document.querySelector(".back-detail");
   // const card = document.querySelectorAll(".card");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
   // const btnDelete = document.querySelector(".delete-btn");
@@ -253,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const newCard = document.createElement("div");
         newCard.classList.add("card", "relative", "btn-hover", "hover-95");
+        newCard.setAttribute("data-id", task.id);
         newCard.innerHTML = `
          <div class="headCard col-span-2 flex justify-between items-center h-7">
            <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
@@ -292,6 +293,11 @@ document.addEventListener("DOMContentLoaded", () => {
             check.checked = task.isComplete;
             statusCheck.textContent = "InCompleted";
           }
+        });
+
+        // detail
+        newCard.addEventListener("dblclick", () => {
+          showTaskDetail(task.id);
         });
 
         // update
@@ -347,45 +353,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // card.forEach((element) => {
-  //   element.addEventListener("dblclick", () => {
-  //     bgdetail.classList.remove("disp");
-  //     bgdetail.style.display = "block";
-  //     setTimeout(function () {
-  //       bgdetail.style.transform = "translateY(0)";
-  //     }, 200);
-  //   });
-  // });
+  backdetail.addEventListener("click", () => {
+    bgdetail.style.transform = "translateY(100%)";
+    setTimeout(function () {
+      bgdetail.style.display = "none";
+    }, 400);
+  });
 
-  // backdetail.addEventListener("click", () => {
-  //   bgdetail.style.transform = "translateY(100%)";
-  //   setTimeout(function () {
-  //     bgdetail.style.display = "none";
-  //   }, 400);
-  // });
+  // Display task detail
+  function showTaskDetail(taskId) {
+    const tasks = loadTasks();
+    const task = tasks[taskId]; // Get the correct task data
 
-  // edit.forEach((element) => {
-  //   element.addEventListener("click", () => {
-  //     bgeditcontent.classList.remove("disp");
-  //     bgeditcontent.style.display = "block";
-  //     setTimeout(function () {
-  //       bgeditcontent.style.transform = "translateX(0)";
-  //     }, 200);
-  //   });
-  // });
+    // Set the detail values
+    const detailTitle = document.querySelector(".detail-title");
+    const detailDescription = document.querySelector(".detail-description");
+    const detailTime = document.querySelector(".detail-time");
+    const detailStatus = document.querySelector(".detail-status");
 
-  // btnDelete.addEventListener("click", () => {
-  //   // let id = document.querySelector("#id").value;
-  //   bgdetail.style.transform = "translateY(100%)";
-  //   setTimeout(function () {
-  //     bgdetail.style.display = "none";
-  //     document.querySelector("span.alert").textContent =
-  //       "Task has been successfully deleted!";
-  //     document.querySelector("#sticky-banner").style.display = "flex";
-  //     document.querySelector("#sticky-banner").style.opacity = "1";
-  //     document.querySelector("#sticky-banner").classList.remove("hidden");
-  //   }, 400);
-  // });
+    detailTitle.textContent = task.taskName;
+    detailDescription.textContent = task.description;
+    detailTime.textContent = `${task.startTime} - ${task.endTime}`;
+    if (task.isComplete == true) {
+      detailStatus.textContent = "Completed";
+    } else {
+      detailStatus.textContent = "InCompleted";
+    }
+
+    bgdetail.classList.remove("disp");
+    bgdetail.style.display = "block";
+    setTimeout(function () {
+      bgdetail.style.transform = "translateY(0)";
+    }, 200);
+  }
 
   formAdd.addEventListener("submit", (event) => {
     addTask();
