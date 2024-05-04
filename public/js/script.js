@@ -222,19 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR BETTER DISPLAY WHEN LIST WITH A FEW TASK
     const contain = document.querySelector(".container");
 
-    // View Mobile
-    function isMobile() {
-      return window.matchMedia("(max-width: 767px)").matches;
-    }
-
-    let addFullScreen;
-    if (isMobile()) {
-      addFullScreen = filteredTasks.length > 0 && filteredTasks.length < 2;
-    } else {
-      addFullScreen = filteredTasks.length > 1 && filteredTasks.length < 4;
-    }
-
-    if (addFullScreen) {
+    if (filteredTasks.length > 0 && filteredTasks.length < 4) {
       contain.classList.add("h-screen");
     } else {
       contain.classList.remove("h-screen");
