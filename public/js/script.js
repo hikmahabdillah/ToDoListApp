@@ -11,25 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const numOfTask = document.querySelector(".badge");
 
   const backedit = document.querySelector(".back-edit");
-  // const edit = document.querySelectorAll(".edit");
   const bgdetail = document.querySelector(".bg-overlay-detail");
   const backdetail = document.querySelector(".back-detail");
-  // const card = document.querySelectorAll(".card");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
   // const btnDelete = document.querySelector(".delete-btn");
 
   let activeTab = "incompleted";
 
+  // function for show num of task
   function showNumOfTask() {
     const tasks = getTask();
     const lengthOfTask = Object.keys(tasks).length;
     numOfTask.textContent = `${lengthOfTask} Tasks`;
     return lengthOfTask;
   }
-
-  // if (showNumOfTask() > 0 && showNumOfTask() < 4) {
-  //   document.querySelector(".container").classList.add("h-screen");
-  // }
 
   // EVENT FOR ANIMATION
   btnContinue.addEventListener("click", () => {
@@ -106,12 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
     saveTask(tasks);
   }
 
-  // // GET ID
-  // function getTaskById(id) {
-  //   const tasks = loadTasks();
-  //   return tasks[id];
-  // }
-
   // ADD TASK FEATURE
   function addTask() {
     let taskName = document.querySelector('input[name="task-name"]').value;
@@ -166,14 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DELETE TASK FEATURE
   function deleteTask(id) {
-    // const confirmation = confirm("Are you sure to delete this task?");
-    // if (confirmation) {
-    //   const tasks = getTask();
-    //   delete tasks[id];
-    //   saveTask(tasks);
-    //   showNumOfTask();
-    //   displayTask();
-    // }
+    const confirmation = confirm("Are you sure to delete this task?");
+    if (confirmation) {
+      const tasks = getTask();
+      delete tasks[id];
+      saveTask(tasks);
+      showNumOfTask();
+      displayTask();
+    }
   }
 
   // ISCOMPLETED
@@ -222,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR BETTER DISPLAY WHEN LIST WITH A FEW TASK
     const contain = document.querySelector(".container");
 
-    if (filteredTasks.length > 0 && filteredTasks.length < 2) {
+    if (filteredTasks.length > 0 && filteredTasks.length < 4) {
       contain.classList.add("h-screen");
     } else {
       contain.classList.remove("h-screen");
@@ -256,15 +245,17 @@ document.addEventListener("DOMContentLoaded", () => {
         newCard.setAttribute("data-id", task.id);
         newCard.innerHTML = `
          <div class="headCard col-span-2 flex justify-between items-center h-7">
-           <span class="status bg-yellow-900 text-yellow-300 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
-           <div class="flex gap-1 p-3 [&>img]:rounded-lg [&>img]:p-1">
-             <img src="./img/Edit2.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
-             <img src="./img/Delete2.png" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="delete-icon hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+           <span class="status bg-[#FDDE55] text-yellow-900 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
+           <div class="flex items-center gap-1 py-3 [&>img]:rounded-lg [&>img]:p-1">
+             <img src="./img/pencil.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="40px" height="40px" alt="">
+             <img src="./img/delete 2.png" class="delete-icon max-h-[35px] hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
            </div>
          </div>
          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
-         <p class="text-gray-600 text-sm col-span-2 line-clamp-2 text-ellipsis max-w-[95%] mb-4">${task.description}</p>
-         <div class="flex items-center me-4 col-span-2 justify-self-end">
+         <span class="line-clamp-2 text-ellipsis col-span-2 max-w-[95%] mb-4"> 
+         <p class="text-gray-600 text-sm ">${task.description}</p>
+         </span>
+         <div class="flex items-center me-1 col-span-2 justify-self-end">
            <input id="completed-checkbox-${task.id}" type="checkbox" class="complete-checkbox w-6 h-6 text-[#FF8400] bg-gray-100 border-gray-300 rounded focus:ring-[#FF8400] dark:focus:ring-[#ff8400ad] focus:ring-2 ">
            <label for="completed-checkbox-${task.id}" class="ms-2 text-sm font-medium text-[#FF8400] dark:text-gray-300">Done</label>
          </div>
@@ -343,9 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
           deleteIcon.addEventListener("click", () => {
             deleteTask(task.id);
           });
-
-          // APPEND NEW ELEMENT TO PARENT
-          // cardPlace.appendChild(newCard);
         });
 
         cardPlace.appendChild(newCard);
@@ -381,8 +369,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set the detail values
     const detailTitle = document.querySelector(".detail-title");
     const detailDescription = document.querySelector(".detail-description");
+    const detailDescriptionArea = document.querySelector(
+      ".description-detail-area"
+    );
     const detailTime = document.querySelector(".detail-time");
     const detailStatus = document.querySelector(".detail-status");
+
+    if (task.description === "") {
+      detailDescriptionArea.classList.add("hidden");
+    } else {
+      detailDescriptionArea.classList.remove("hidden");
+    }
 
     detailTitle.textContent = task.taskName;
     detailDescription.textContent = task.description;
