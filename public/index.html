@@ -207,13 +207,18 @@
 
   <!-- DETAIL TASK SECTION -->
   <div class="bg-overlay-detail disp">
+    <div data-popover id="popover-left-2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+      <div class="px-3 py-2">Here you can view the details of the task you have been maked</p>
+      </div>
+      <div data-popper-arrow></div>
+  </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.png" class="back-detail rotate-180 cursor-pointer" alt="" />
       <span class="header">
         <h1 class="font-semibold text-slate-50 text-lg lg:text-xl text-center leading-tight">Detail Task</h1>
         <h2 class="detail-time font-medium text-slate-50 text-md lg:text-lg leading-tight"></h2>
       </span>
-      <img src="./img/Info.png" width="35px" alt="" />
+      <img src="./img/Info.png" data-popover-target="popover-left-2" data-popover-placement="left" width="35px" alt="" />
     </div>
     <div class="detail-content mt-10 max-w-sm px-5 mx-auto flex flex-col gap-4">
       <div class="detail-head justify-start items-center">
