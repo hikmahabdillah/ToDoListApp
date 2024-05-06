@@ -185,16 +185,16 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTask(tasks);
       showNumOfTask();
       displayTask();
-    }
 
-    document.querySelector("span.alert").textContent =
-      "Task has been successfully deleted!";
-    document.querySelector("#sticky-banner").style.display = "flex";
-    document.querySelector("#sticky-banner").style.opacity = "1";
-    document.querySelector("#sticky-banner").classList.remove("hidden");
-    setTimeout(function () {
-      document.querySelector("#sticky-banner").style.display = "none";
-    }, 3000);
+      document.querySelector("span.alert").textContent =
+        "Task has been successfully deleted!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
+      setTimeout(function () {
+        document.querySelector("#sticky-banner").style.display = "none";
+      }, 3000);
+    }
   }
 
   // ISCOMPLETED
@@ -214,15 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
       displayTask();
       showNumOfTask();
       // cardPlace.innerHTML = "";
+      document.querySelector("span.alert").textContent =
+        "All Tasks has been successfully deleted!";
+      document.querySelector("#sticky-banner").style.display = "flex";
+      document.querySelector("#sticky-banner").style.opacity = "1";
+      document.querySelector("#sticky-banner").classList.remove("hidden");
+      setTimeout(function () {
+        document.querySelector("#sticky-banner").style.display = "none";
+      }, 3000);
     }
-    document.querySelector("span.alert").textContent =
-      "All Tasks has been successfully deleted!";
-    document.querySelector("#sticky-banner").style.display = "flex";
-    document.querySelector("#sticky-banner").style.opacity = "1";
-    document.querySelector("#sticky-banner").classList.remove("hidden");
-    setTimeout(function () {
-      document.querySelector("#sticky-banner").style.display = "none";
-    }, 3000);
   });
 
   function displayTask() {
@@ -372,10 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // delete
           const deleteIcon = newCard.querySelector(".delete-icon");
           deleteIcon.addEventListener("click", () => {
-            document.querySelector(
-              ".popup-modal"
-            ).id = `popup-modal-${task.id}`;
-
             deleteTask(task.id);
           });
         });
