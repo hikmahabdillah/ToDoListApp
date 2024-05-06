@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgdetail = document.querySelector(".bg-overlay-detail");
   const backdetail = document.querySelector(".back-detail");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
+  const popupModal = document.querySelector(".popup-modal");
+  const confirmBtn = document.querySelector(".confirm-popup-btn");
+  const closeBtnModal = document.querySelectorAll(".close-popup-btn");
 
   const date = new Date();
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -61,6 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(function () {
       document.querySelector("#sticky-banner").style.display = "none";
     }, 200);
+  });
+
+  closeBtnModal.forEach((close) => {
+    close.addEventListener("click", function () {
+      popupModal.classList.add("hidden");
+    });
   });
 
   tabs.forEach((tab) => {
@@ -178,14 +187,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DELETE TASK FEATURE
   function deleteTask(id) {
-    const confirmation = confirm("Are you sure to delete this task?");
-    if (confirmation) {
+    // const confirmation = confirm("Are you sure to delete this task?");
+    popupModal.classList.remove("hidden");
+    popupModal.classList.add("flex");
+    document.querySelector(".alert-detail").textContent =
+      "Are you sure you want to delete this task?";
+
+    confirmBtn.addEventListener("click", function () {
       const tasks = getTask();
       delete tasks[id];
       saveTask(tasks);
       showNumOfTask();
       displayTask();
 
+      popupModal.classList.add("hidden");
       document.querySelector("span.alert").textContent =
         "Task has been successfully deleted!";
       document.querySelector("#sticky-banner").style.display = "flex";
@@ -194,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(function () {
         document.querySelector("#sticky-banner").style.display = "none";
       }, 3000);
-    }
+    });
   }
 
   // ISCOMPLETED
@@ -206,14 +221,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // REMOVE ALL TASK FROM LOCAL STORAGE
   document.querySelector(".deleteAll").addEventListener("click", () => {
-    const confirmation = confirm(
-      "Apakah Anda yakin ingin menghapus semua tugas?"
-    );
-    if (confirmation) {
+    popupModal.classList.remove("hidden");
+    popupModal.classList.add("flex");
+
+    document.querySelector(".alert-detail").textContent =
+      "Are you sure you want to delete All tasks?";
+    confirmBtn.addEventListener("click", function () {
       localStorage.removeItem("TODOOAPPS");
       displayTask();
       showNumOfTask();
       // cardPlace.innerHTML = "";
+      popupModal.classList.add("hidden");
+
       document.querySelector("span.alert").textContent =
         "All Tasks has been successfully deleted!";
       document.querySelector("#sticky-banner").style.display = "flex";
@@ -222,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(function () {
         document.querySelector("#sticky-banner").style.display = "none";
       }, 3000);
-    }
+    });
   });
 
   function displayTask() {
