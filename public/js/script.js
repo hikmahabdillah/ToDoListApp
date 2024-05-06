@@ -270,10 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR BETTER DISPLAY WHEN LIST WITH A FEW TASK
     const contain = document.querySelector(".container");
 
-    if (filteredTasks.length > 0 && filteredTasks.length < 4) {
-      contain.classList.add("h-screen");
+    if (window.innerWidth >= 1024) {
+      filteredTasks.length > 0 && filteredTasks.length < 4
+        ? contain.classList.add("h-screen")
+        : contain.classList.remove("h-screen");
     } else {
-      contain.classList.remove("h-screen");
+      filteredTasks.length > 0 && filteredTasks.length < 2
+        ? contain.classList.add("h-screen")
+        : contain.classList.remove("h-screen");
     }
 
     // if filtered task has length === 0
