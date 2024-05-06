@@ -306,8 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
          <div class="headCard col-span-2 flex justify-between items-center h-7">
            <span class="status bg-[#FDDE55] text-yellow-900 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
            <div class="flex items-center gap-1 py-3 [&>img]:rounded-lg [&>img]:p-1">
-             <img src="./img/pencil.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="40px" height="40px" alt="">
-             <img src="./img/delete 2.png" data-id="${task.id}" class="delete-icon max-h-[35px] hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+             <img src="./img/pencil.webp" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="40px" height="40px" alt="">
+             <img src="./img/delete 2.webp" data-id="${task.id}" class="delete-icon max-h-[35px] hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
            </div>
          </div>
          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
