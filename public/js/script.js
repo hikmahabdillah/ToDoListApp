@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DISPLAY ANIMATION WHEN NO TASK
     const noTaskAnimation = `
-    <img src="./img/3d-isometric-research-of-statistical-data-and-analytics.gif" class=" drop-shadow-2xl justify-self-center self-center shadow-neutral-900" width="330px" alt="">
+    <img src="./img/3d-casual-life-young-man-pointing-on-contract.png" class="animate-updown p-4 drop-shadow-2xl justify-self-center self-center shadow-neutral-900" width="340px" alt="">
     <h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 pt-8 mt-3 sm:mt-0 text-[#562D00]">There is no task. What do you want to do?</h2>`;
 
     // IS COMPLETED
