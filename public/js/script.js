@@ -14,7 +14,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgdetail = document.querySelector(".bg-overlay-detail");
   const backdetail = document.querySelector(".back-detail");
   const bgeditcontent = document.querySelector(".bg-overlay-update");
-  // const btnDelete = document.querySelector(".delete-btn");
+
+  const date = new Date();
+  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const day = dayNames[date.getDay()];
+  const dayNumber = date.getDate();
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const formattedDate = `${day}, ${dayNumber} ${month} ${year}`;
+
+  document.querySelector(".today").textContent = formattedDate;
 
   let activeTab = "incompleted";
 
@@ -163,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showNumOfTask();
       displayTask();
     }
+
     document.querySelector("span.alert").textContent =
       "Task has been successfully deleted!";
     document.querySelector("#sticky-banner").style.display = "flex";
@@ -264,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
            <span class="status bg-[#FDDE55] text-yellow-900 text-sm font-medium me-2 px-2.5 py-0.5 rounded-md">Incompleted</span>
            <div class="flex items-center gap-1 py-3 [&>img]:rounded-lg [&>img]:p-1">
              <img src="./img/pencil.png" data-id="${task.id}" class="edit hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="40px" height="40px" alt="">
-             <img src="./img/delete 2.png" class="delete-icon max-h-[35px] hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
+             <img src="./img/delete 2.png" data-modal-target="popup-modal-${task.id}" data-modal-toggle="popup-modal-${task.id}" class="delete-icon max-h-[35px] hover:scale-90 hover:ring-orange-400 hover:ring-2 transition-all duration-300" width="35px" alt="">
            </div>
          </div>
          <h2 class="font-semibold text-[#562D00] text-xl col-span-2 max-w-[80%] mt-2">${task.taskName}</h2>
@@ -348,6 +372,10 @@ document.addEventListener("DOMContentLoaded", () => {
           // delete
           const deleteIcon = newCard.querySelector(".delete-icon");
           deleteIcon.addEventListener("click", () => {
+            document.querySelector(
+              ".popup-modal"
+            ).id = `popup-modal-${task.id}`;
+
             deleteTask(task.id);
           });
         });
