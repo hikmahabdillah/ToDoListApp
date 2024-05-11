@@ -14,7 +14,7 @@ const tabs = document.querySelectorAll(".tab-option");
 let activeTab = "incompleted";
 
 // display alert
-export function displayAlert() {
+function displayAlert() {
   document.querySelector("#sticky-banner").style.display = "flex";
   document.querySelector("#sticky-banner").style.opacity = "1";
   document.querySelector("#sticky-banner").classList.remove("hidden");
@@ -41,37 +41,30 @@ export function showNumOfTask() {
 }
 
 // LOAD TASK FROM LOCAL STORAGE
-export function loadTasks() {
+function loadTasks() {
   const tasks = localStorage.getItem("TODOOAPPS");
   return tasks ? JSON.parse(tasks) : {};
 }
 
 // GET TASK
-export function getTask() {
+function getTask() {
   return loadTasks();
 }
 
 // SAVE TASK ON LOCAL STORAGE
-export function saveTask(tasks) {
+function saveTask(tasks) {
   localStorage.setItem("TODOOAPPS", JSON.stringify(tasks));
 }
 
 // CREATE TASK
-export function createTask(
-  id,
-  taskName,
-  description,
-  startTime,
-  endTime,
-  isComplete
-) {
+function createTask(id, taskName, description, startTime, endTime, isComplete) {
   const tasks = loadTasks();
   tasks[id] = { id, taskName, description, startTime, endTime, isComplete };
   saveTask(tasks);
 }
 
 // ADD TASK FEATURE
-export function addTask() {
+function addTask() {
   let taskName = document.querySelector('input[name="task-name"]').value;
   let startTime = document.querySelector('input[name="startTime"]').value;
   let endTime = document.querySelector('input[name="endTime"]').value;
@@ -82,7 +75,7 @@ export function addTask() {
 }
 
 // UPDATE TASK FEATURE
-export function updateTask(id) {
+function updateTask(id) {
   let newtaskName = document.querySelector("input#updateTaskName").value;
   let newstartTime = document.querySelector(
     'input[name="updateStartTime"]'
@@ -116,7 +109,7 @@ export function updateTask(id) {
 }
 
 // DELETE TASK FEATURE
-export function deleteTask(id) {
+function deleteTask(id) {
   // const confirmation = confirm("Are you sure to delete this task?");
   popupModal.classList.remove("hidden");
   popupModal.classList.add("flex");
@@ -138,7 +131,7 @@ export function deleteTask(id) {
 }
 
 // ISCOMPLETED
-export function isCompleted(id) {
+function isCompleted(id) {
   const tasks = getTask();
   tasks[id].isComplete = !tasks[id].isComplete;
   saveTask(tasks);
@@ -324,7 +317,7 @@ export function displayTask() {
 }
 
 // Display task detail
-export function showTaskDetail(taskId) {
+function showTaskDetail(taskId) {
   const tasks = loadTasks();
   const task = tasks[taskId]; // Get the correct task data
 

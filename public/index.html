@@ -38,10 +38,15 @@
 
   <!-- ADD TASK SECTION -->
   <div class="bg-overlay-content disp">
+    <div data-popover id="popover-left-4" role="tooltip" class="popover">
+      <div class="px-3 py-2">Here you can add tasks according to your needs.</p>
+      </div>
+      <div data-popper-arrow></div>
+  </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.webp" class="back rotate-180 cursor-pointer" alt="" />
       <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Add Your New Task</h1>
-      <img src="./img/Info.webp" width="35px" alt="" />
+      <img src="./img/Info.webp" data-popover-target="popover-left-4" data-popover-placement="left" width="35px" alt="" />
     </div>
     <form id="addTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
@@ -111,10 +116,15 @@
 
   <!-- UPDATE TASK SECTION -->
   <div class="bg-overlay-update disp">
+    <div data-popover id="popover-left-3" role="tooltip" class="popover">
+      <div class="px-3 py-2">Here you can update the details of the task you have been maked</p>
+      </div>
+      <div data-popper-arrow></div>
+  </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.webp" class="back-edit rotate-180 cursor-pointer" alt="" />
       <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Update Your Task</h1>
-      <img src="./img/Info.webp" width="35px" alt="" />
+      <img src="./img/Info.webp" data-popover-target="popover-left-3" data-popover-placement="left" width="35px" alt="" />
     </div>
     <form id="updateTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
