@@ -54,6 +54,9 @@
 }
 
 @layer components {
+  .sticky-alert-banner {
+    @apply fixed z-[9] hidden md:flex-row flex-nowrap justify-between w-[calc(100%-2rem)] p-4 -translate-x-1/2 bg-white border border-green-100 rounded-lg shadow-sm lg:max-w-7xl left-1/2 top-6;
+  }
   .overlay {
     @apply flex flex-1 flex-wrap justify-center items-center z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden;
   }
@@ -74,6 +77,24 @@
   }
   .time-badge {
     @apply text-sm font-medium max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D];
+  }
+  .popover {
+    @apply absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800;
+  }
+  .close-btn {
+    @apply flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-green-400 hover:bg-green-200 hover:text-green-900 rounded-lg text-sm p-1.5 dark:hover:bg-green-600 dark:hover:text-white;
+  }
+  .close-popup-button {
+    @apply py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700;
+  }
+  .confirm-popup-btn {
+    @apply text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center;
+  }
+  .close-popup-icon {
+    @apply absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white;
+  }
+  .confirm-alert {
+    @apply bg-neutral-700 bg-opacity-50 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-full md:inset-0 max-h-full;
   }
 }
 

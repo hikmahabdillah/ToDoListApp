@@ -7,8 +7,8 @@
   <meta name="description" content="Organize Your Life, One Task at a Time. Where simplicity meets
   efficiency. With our user-friendly interface.">
   <title>ToDooo | ToDoList App</title>
-  <link rel="shortcut icon" href="./img/ToDo Logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="./css/final.css" />
+  <link rel="shortcut icon" href="./img/ToDo-Logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body class="bg-body ">
@@ -184,10 +184,10 @@
   </div>
 
   <!-- CONFIRMATION ALERT -->
-  <div tabindex="-1" class="bg-neutral-700 bg-opacity-50 popup-modal hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-full md:inset-0 max-h-full">
+  <div tabindex="-1" class="confirm-alert popup-modal">
     <div class="p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="close-popup-btn absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <button type="button" class="close-popup-btn close-popup-icon">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                 </svg>
@@ -198,10 +198,10 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
                 <h3 class="alert-detail mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"></h3>
-                <button type="button" class="confirm-popup-btn text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                <button type="button" class="confirm-popup-btn">
                     Yes, I'm sure
                 </button>
-                <button type="button" class="close-popup-btn py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No, cancel</button>
+                <button type="button" class="close-popup-btn close-popup-button">No, cancel</button>
             </div>
         </div>
     </div>
@@ -209,7 +209,7 @@
 
   <!-- DETAIL TASK SECTION -->
   <div class="bg-overlay-detail disp">
-    <div data-popover id="popover-left-2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+    <div data-popover id="popover-left-2" role="tooltip" class="popover">
       <div class="px-3 py-2">Here you can view the details of the task you have been maked</p>
       </div>
       <div data-popper-arrow></div>
@@ -238,7 +238,7 @@
 
   <!-- ALERT SUCCESS -->
   <div id="sticky-banner" tabindex="-1"
-  class="fixed z-[9] hidden md:flex-row flex-nowrap justify-between w-[calc(100%-2rem)] p-4 -translate-x-1/2 bg-white border border-green-100 rounded-lg shadow-sm lg:max-w-7xl left-1/2 top-6">
+  class="sticky-alert-banner">
   <div class="flex items-center mx-auto">
     <p class="flex items-center text-sm font-normal text-green-500">
       <span
@@ -255,7 +255,7 @@
   </div>
   <div class="flex items-center">
     <button data-dismiss-target="#sticky-banner" type="button"
-      class="close-btn flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-green-400 hover:bg-green-200 hover:text-green-900 rounded-lg text-sm p-1.5 dark:hover:bg-green-600 dark:hover:text-white">
+      class="close-btn">
       <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
@@ -271,7 +271,7 @@
       <img src="./img/TodoLogo.webp" width="90px" alt="" />
       <img src="./img/Info.webp" data-popover-target="popover-left" data-popover-placement="left" width="35px" alt="" />
     </nav>
-    <div data-popover id="popover-left" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+    <div data-popover id="popover-left" role="tooltip" class="popover">
       <div class="px-3 py-2">
           <p>For detail task information, You can double click on the card of task</p>
       </div>
@@ -311,7 +311,9 @@
 
   </div>
   </div>
-  <script src="./js/script.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script type="module" src="./js/eventHandling.js"></script>
+  <script type="module" src="./js/taskManagement.js"></script>
   <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
