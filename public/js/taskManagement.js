@@ -7,7 +7,7 @@ import {
 
 const formAdd = document.getElementById("addTask");
 const cardPlace = document.querySelector(".card-place");
-const numOfTask = document.querySelector(".badge");
+const numOfTask = document.querySelector(".num-of-task");
 const confirmBtn = document.querySelector(".confirm-popup-btn");
 const tabs = document.querySelectorAll(".tab-option");
 

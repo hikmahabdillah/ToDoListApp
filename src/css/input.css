@@ -12,10 +12,10 @@
     @apply flex justify-between items-center gap-x-4;
   }
   .tab-option {
-    @apply font-semibold text-gray-100 opacity-50 text-sm md:text-base transition-all duration-300 cursor-pointer;
+    @apply font-semibold text-gray-100 opacity-80 text-sm md:text-base transition-all duration-300 cursor-pointer border-b-2 border-transparent pb-1 hover:border-gray-100;
   }
   .active {
-    @apply text-[#FEEFAD] opacity-100;
+    @apply text-[#f8d641] opacity-100 border-b-2 border-[#fce16b];
   }
   .disp {
     opacity: 0;
@@ -66,8 +66,8 @@
   .btn-add {
     @apply bg-slate-50 py-2 pl-5 pr-3 rounded-full flex items-center gap-2 w-max h-max;
   }
-  .badge {
-    @apply font-semibold text-sm lg:text-base px-4 py-1 lg:py-2 bg-[#FFD423] text-[#562D00] rounded-full w-max h-max leading-none;
+  .num-of-task {
+    @apply font-semibold text-sm lg:text-base px-4 py-1 text-[#562D00] leading-none;
   }
   .card-place {
     @apply rounded-lg max-h-[450px] col-span-2 flex flex-col md:flex-row md:flex-wrap gap-4 w-full overflow-y-auto overflow-x-hidden md:rounded-xl bg-slate-50 shadow-lg p-6;
