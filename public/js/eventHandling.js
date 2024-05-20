@@ -87,3 +87,17 @@ export function handleEvents() {
     }, 400);
   });
 }
+export const changeGreeting = () => {
+  const greet = document.querySelector("h1.greeting");
+  const currentHour = new Date().getHours();
+
+  if (currentHour >= 4 && currentHour < 12) {
+    greet.textContent = "Good Morning !";
+  } else if (currentHour >= 12 && currentHour < 15) {
+    greet.textContent = "Good Afternoon !";
+  } else if (currentHour >= 15 && currentHour < 18) {
+    greet.textContent = "Good Evening !";
+  } else {
+    greet.textContent = "Good Night !";
+  }
+};
