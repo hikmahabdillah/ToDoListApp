@@ -17,12 +17,10 @@ module.exports = {
       keyframes: {
         loader: {
           "0%, 100%": {
-            borderRadius: "50%",
             transform: "scale(1)",
             opacity: 0.6,
           },
           "50%": {
-            borderRadius: "10px",
             transform: "scale(1.15)",
             opacity: 1,
           },

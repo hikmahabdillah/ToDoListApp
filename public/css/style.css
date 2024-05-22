@@ -1840,13 +1840,11 @@ input:checked + .toggle-bg {
 
 @keyframes loader {
   0%, 100% {
-    border-radius: 50%;
     transform: scale(1);
     opacity: 0.6;
   }
 
   50% {
-    border-radius: 10px;
     transform: scale(1.15);
     opacity: 1;
   }
@@ -2617,7 +2615,7 @@ input:checked + .toggle-bg {
   justify-content: center;
   overflow: hidden;
   --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  background-color: rgb(253 222 85 / var(--tw-bg-opacity));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;

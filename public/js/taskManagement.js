@@ -53,11 +53,15 @@ export function onBoarding() {
     onboard.classList.add("disp");
     setTimeout(() => {
       onboard.style.display = "none";
-    }, 1500);
+    }, 1000);
   } else {
     console.log(`Tasks Is Null : ${false}`);
     bgOverlay.style.display = "none";
-    onboard.style.display = "none";
+    onboard.style.display = "flex";
+    onboard.classList.add("disp");
+    setTimeout(() => {
+      onboard.style.display = "none";
+    }, 1000);
     // bgOverlay.classList.remove("overlay");
   }
 }

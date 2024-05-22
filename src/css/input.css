@@ -37,7 +37,7 @@
     @apply bg-gradient-to-b from-[#03AED2] from-30% to-[#FDDE55] bg-no-repeat z-10 p-5 transition-all duration-500 fixed w-full h-full overflow-hidden block translate-x-full;
   }
   .onboarding {
-    @apply bg-slate-100 flex items-center justify-center z-20 transition-all duration-500 fixed w-screen h-screen overflow-hidden;
+    @apply bg-[#FDDE55] flex items-center justify-center z-20 transition-all duration-500 fixed w-screen h-screen overflow-hidden;
   }
   .bg-body {
     @apply bg-gradient-to-b from-[#03AED2] from-30% to-[#FDDE55] bg-no-repeat;
