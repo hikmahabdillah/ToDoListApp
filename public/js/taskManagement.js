@@ -10,6 +10,8 @@ const cardPlace = document.querySelector(".card-place");
 const numOfTask = document.querySelector(".num-of-task");
 const confirmBtn = document.querySelector(".confirm-popup-btn");
 const tabs = document.querySelectorAll(".tab-option");
+const bgOverlay = document.querySelector(".bg-overlay");
+const overlay = document.querySelector(".overlay");
 
 let activeTab = "incompleted";
 
@@ -38,6 +40,19 @@ export function showNumOfTask() {
   const lengthOfTask = Object.keys(tasks).length;
   numOfTask.textContent = `${lengthOfTask} Tasks`;
   return lengthOfTask;
+}
+
+// FUNCTION TO LOAD ONBOARDING WHEN TASK = 0
+export function onBoarding() {
+  console.log(`numOfTask : ${showNumOfTask()}`);
+  if (showNumOfTask() === 0 || localStorage.getItem("TODOOAPPS") == null) {
+    bgOverlay.classList.add("overlay");
+    console.log(`Tasks Is Null : ${true}`);
+  } else {
+    console.log(`Tasks Is Null : ${false}`);
+    bgOverlay.style.display = "none";
+    bgOverlay.classList.remove("overlay");
+  }
 }
 
 // LOAD TASK FROM LOCAL STORAGE
