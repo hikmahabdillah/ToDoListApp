@@ -53,7 +53,7 @@ export function onBoarding() {
     onboard.classList.add("disp");
     setTimeout(() => {
       onboard.style.display = "none";
-    }, 400);
+    }, 1500);
   } else {
     console.log(`Tasks Is Null : ${false}`);
     bgOverlay.style.display = "none";
