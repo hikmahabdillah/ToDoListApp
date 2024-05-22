@@ -11,7 +11,8 @@ const numOfTask = document.querySelector(".num-of-task");
 const confirmBtn = document.querySelector(".confirm-popup-btn");
 const tabs = document.querySelectorAll(".tab-option");
 const bgOverlay = document.querySelector(".bg-overlay");
-const overlay = document.querySelector(".overlay");
+const onboard = document.querySelector(".onboarding");
+// const overlay = document.querySelector(".overlay");
 
 let activeTab = "incompleted";
 
@@ -46,12 +47,18 @@ export function showNumOfTask() {
 export function onBoarding() {
   console.log(`numOfTask : ${showNumOfTask()}`);
   if (showNumOfTask() === 0 || localStorage.getItem("TODOOAPPS") == null) {
-    bgOverlay.classList.add("overlay");
+    // bgOverlay.classList.add("overlay");
     console.log(`Tasks Is Null : ${true}`);
+    onboard.style.display = "flex";
+    onboard.classList.add("disp");
+    setTimeout(() => {
+      onboard.style.display = "none";
+    }, 400);
   } else {
     console.log(`Tasks Is Null : ${false}`);
     bgOverlay.style.display = "none";
-    bgOverlay.classList.remove("overlay");
+    onboard.style.display = "none";
+    // bgOverlay.classList.remove("overlay");
   }
 }
 

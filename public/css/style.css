@@ -1743,6 +1743,10 @@ input:checked + .toggle-bg {
   width: 16rem;
 }
 
+.w-\[70px\] {
+  width: 70px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1832,6 +1836,24 @@ input:checked + .toggle-bg {
 
 .transform-none {
   transform: none;
+}
+
+@keyframes loader {
+  0%, 100% {
+    border-radius: 50%;
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    border-radius: 10px;
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-loader {
+  animation: loader 1.5s infinite;
 }
 
 @keyframes upndown {
@@ -2580,6 +2602,22 @@ input:checked + .toggle-bg {
   --tw-gradient-to: #FDDE55 var(--tw-gradient-to-position);
   background-repeat: no-repeat;
   padding: 1.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.onboarding {
+  position: fixed;
+  z-index: 20;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;

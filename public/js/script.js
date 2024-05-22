@@ -5,8 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   handleEvents();
   changeGreeting();
   window.onload = function () {
-    onBoarding();
     displayTask();
     showNumOfTask();
   };
+  window.addEventListener("load", () => {
+    // if page is fully loaded, remove preloader
+    onBoarding();
+  });
 });
