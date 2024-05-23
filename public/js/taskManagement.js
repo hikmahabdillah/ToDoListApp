@@ -141,6 +141,8 @@ function deleteTask(id) {
   popupModal.classList.add("flex");
   document.querySelector(".alert-detail").textContent =
     "Are you sure you want to delete this task?";
+  confirmBtn.style.display = "inline-flex";
+
   const tasks = getTask();
 
   confirmBtn.addEventListener("click", function () {
@@ -167,20 +169,29 @@ function isCompleted(id) {
 document.querySelector(".deleteAll").addEventListener("click", () => {
   popupModal.classList.remove("hidden");
   popupModal.classList.add("flex");
-
+  confirmBtn.style.display = "none";
   document.querySelector(".alert-detail").textContent =
-    "Are you sure you want to delete All tasks?";
-  confirmBtn.addEventListener("click", function () {
-    localStorage.removeItem("TODOOAPPS");
-    displayTask();
-    showNumOfTask();
-    // cardPlace.innerHTML = "";
-    popupModal.classList.add("hidden");
+    "Task is Empty! Nothing can be deleted.";
 
-    document.querySelector("span.alert").textContent =
-      "All Tasks has been successfully deleted!";
-    displayAlert();
-  });
+  console.log(showNumOfTask());
+  console.log(localStorage.getItem("TODOOAPPS") != null);
+  if (showNumOfTask() !== 0 && localStorage.getItem("TODOOAPPS") != null) {
+    document.querySelector(".alert-detail").textContent =
+      "Are you sure you want to delete All tasks?";
+    confirmBtn.style.display = "inline-flex";
+
+    confirmBtn.addEventListener("click", function () {
+      localStorage.removeItem("TODOOAPPS");
+      displayTask();
+      showNumOfTask();
+      // cardPlace.innerHTML = "";
+      popupModal.classList.add("hidden");
+
+      document.querySelector("span.alert").textContent =
+        "All Tasks has been successfully deleted!";
+      displayAlert();
+    });
+  }
 });
 
 export function displayTask() {

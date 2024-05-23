@@ -1743,10 +1743,6 @@ input:checked + .toggle-bg {
   width: 16rem;
 }
 
-.w-\[70px\] {
-  width: 70px;
-}
-
 .w-full {
   width: 100%;
 }
@@ -2142,6 +2138,11 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 213 213 / var(--tw-bg-opacity));
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -2381,6 +2382,11 @@ input:checked + .toggle-bg {
 .text-yellow-900 {
   --tw-text-opacity: 1;
   color: rgb(99 49 18 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(240 82 82 / var(--tw-text-opacity));
 }
 
 .placeholder-gray-400::-moz-placeholder {
