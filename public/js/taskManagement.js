@@ -123,13 +123,6 @@ function addTask() {
       hour12: false,
     });
   }
-  if (endTime === "") {
-    endTime = new Date().toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: false,
-    });
-  }
 
   createTask(
     id,
@@ -310,7 +303,7 @@ export function displayTask() {
 
       const formattedDate = `${dayName}, ${day} ${monthName} ${year}`;
       // selection time
-      if (task.endTime !== "" && task.datePick !== "") {
+      if (task.endTime !== "00:00" && task.datePick !== "") {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
         ${task.endTime} ${
@@ -320,7 +313,7 @@ export function displayTask() {
         `;
       } else if (task.datePick !== "") {
         taskTime = `<span class="time-badge absolute bottom-0 left-0">${formattedDate}</span>`;
-      } else if (task.endTime !== "") {
+      } else if (task.endTime !== "00:00") {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
         ${task.endTime} ${
@@ -446,7 +439,7 @@ function showTaskDetail(taskId) {
   // selection time
   if (task.startTime !== "00:00" || task.endTime !== "00:00") {
     taskTime = `
-          ${task.startTime} ${task.startTime.split(":")[0] < 12 ? "am" : "pm"} -
+           -
           ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
         `;
   } else {
@@ -459,7 +452,9 @@ function showTaskDetail(taskId) {
   const detailDescriptionArea = document.querySelector(
     ".description-detail-area"
   );
-  const detailTime = document.querySelector(".detail-time");
+  const detailStartTime = document.querySelector(".detail-start-time");
+  const detailEndTime = document.querySelector(".detail-end-time");
+  const detailDate = document.querySelector(".detail-date");
   const detailStatus = document.querySelector(".detail-status");
 
   if (task.description === "") {
@@ -468,9 +463,24 @@ function showTaskDetail(taskId) {
     detailDescriptionArea.classList.remove("hidden");
   }
 
+  // format date
+  const date = new Date(task.datePick);
+  const dayName = dayNames[date.getDay()];
+  const day = date.getDate();
+  const monthName = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+
+  const formattedDate = `${dayName}, ${day} ${monthName} ${year}`;
+
   detailTitle.textContent = task.taskName;
   detailDescription.textContent = task.description;
-  detailTime.textContent = `${taskTime}`;
+  detailStartTime.innerHTML = `<span class="text-neutral-800">Start Time :</span> ${
+    task.startTime
+  } ${task.startTime.split(":")[0] < 12 ? "am" : "pm"}`;
+  detailEndTime.innerHTML = `<span class="text-neutral-800">End Time :</span> ${
+    task.endTime
+  } ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}`;
+  detailDate.innerHTML = `<span class="text-neutral-800">Date :</span> ${formattedDate}`;
   if (task.isComplete == true) {
     detailStatus.textContent = "Completed";
   } else {
