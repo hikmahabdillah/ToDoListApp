@@ -14,26 +14,27 @@
 <body class="bg-body ">
   <!-- <div class="container mx-auto p-4"></div> -->
   <div class="onboarding"><img class="animate-loader" src="./img/ToDo-Logo.png" alt=""></div>
-    <div class="bg-overlay overlay">
-      <div class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center">
-        <img src="./img/Illustration.webp"
-          class="max-w-[254px] max-h-[280px] animate-updown w-full drop-shadow-[0_15px_10px_rgba(104,210,232,1)]" alt="" />
-        <div class="greeting flex flex-col justify-center items-center sm:items-start">
-          <img src="./img/TodoLogo.webp" alt="" width="100px" />
-          <div class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80">
-            <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
-              Organize Your Life, One Task at a Time
-            </h1>
-            <p class="text-neutral-200 text-sm sm:text-base sm:leading-snug">
-              Welcome to my to-do list application, where simplicity meets
-              efficiency. With our user-friendly interface.
-            </p>
-          </div>
-          <span class="btn-continue btn-hover">
-            <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
-            <img src="./img/Right Arrow.webp" alt="" />
-          </span>
+  <div class="bg-overlay overlay">
+    <div class="main-section gap-5 md:gap-10 p-5 flex flex-wrap justify-center items-center">
+      <img src="./img/Illustration.webp"
+        class="max-w-[254px] max-h-[280px] animate-updown w-full drop-shadow-[0_15px_10px_rgba(104,210,232,1)]"
+        alt="" />
+      <div class="greeting flex flex-col justify-center items-center sm:items-start">
+        <img src="./img/TodoLogo.webp" alt="" width="100px" />
+        <div class="content text-center sm:text-left space-y-2 max-w-64 sm:max-w-80">
+          <h1 class="font-semibold text-lg sm:text-2xl text-neutral-50">
+            Organize Your Life, One Task at a Time
+          </h1>
+          <p class="text-neutral-200 text-sm sm:text-base sm:leading-snug">
+            Welcome to my to-do list application, where simplicity meets
+            efficiency. With our user-friendly interface.
+          </p>
         </div>
+        <span class="btn-continue btn-hover">
+          <h1 class="text-base font-semibold text-neutral-50">Continue</h1>
+          <img src="./img/Right Arrow.webp" alt="" />
+        </span>
+      </div>
     </div>
   </div>
 
@@ -43,11 +44,12 @@
       <div class="px-3 py-2">Here you can add tasks according to your needs.</p>
       </div>
       <div data-popper-arrow></div>
-  </div>
+    </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.webp" class="back rotate-180 cursor-pointer" alt="" />
       <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Add Your New Task</h1>
-      <img src="./img/Info.webp" data-popover-target="popover-left-4" data-popover-placement="left" width="35px" alt="" />
+      <img src="./img/Info.webp" data-popover-target="popover-left-4" data-popover-placement="left" width="35px"
+        alt="" />
     </div>
     <form id="addTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
@@ -58,10 +60,21 @@
       </div>
       <div class="mb-3">
         <label for="description" class="block mb-2 text-base font-medium text-white">Description</label>
-        <textarea id="description" name="task-description" rows="4"
-          class="description block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
-          placeholder="Add Description" maxlength="200"></textarea>
+        <textarea id="description" name="task-description" rows="7"
+        class="description block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
+        placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#FEEFAD]">*Max Character : 200 Character</p>
+      </div>
+      <div class="mb-3">
+        <label for="datePicker" class="block mb-2 text-base font-medium text-white">Select Date</label>
+        <div class="relative max-w-sm">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+              </svg>
+          </div>
+          <input datepicker datepicker-buttons datepicker-autoselect-today name="datePicker" id="datePicker"  type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full ps-10 p-2.5" placeholder="Select date">
+        </div>
       </div>
       <button id="dropdownButton" data-dropdown-toggle="dropdownTime"
         class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
@@ -88,8 +101,7 @@
                 </svg>
               </div>
               <input type="time" name="startTime" id="start-time"
-                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                value="00:00" />
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
             </div>
           </div>
           <div>
@@ -104,8 +116,7 @@
                 </svg>
               </div>
               <input type="time" name="endTime" id="end-time"
-                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                value="00:00" />
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
             </div>
           </div>
         </div>
@@ -121,11 +132,12 @@
       <div class="px-3 py-2">Here you can update the details of the task you have been maked</p>
       </div>
       <div data-popper-arrow></div>
-  </div>
+    </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.webp" class="back-edit rotate-180 cursor-pointer" alt="" />
       <h1 class="font-semibold text-slate-50 text-lg lg:text-xl">Update Your Task</h1>
-      <img src="./img/Info.webp" data-popover-target="popover-left-3" data-popover-placement="left" width="35px" alt="" />
+      <img src="./img/Info.webp" data-popover-target="popover-left-3" data-popover-placement="left" width="35px"
+        alt="" />
     </div>
     <form id="updateTask" class="mt-10 max-w-xs px-5 mx-auto flex flex-col">
       <div class="mb-3">
@@ -136,10 +148,21 @@
       </div>
       <div class="mb-3">
         <label for="updateDescription" class="block mb-2 text-base font-medium text-white">Description</label>
-        <textarea id="updateDescription" rows="4"
+        <textarea id="updateDescription" rows="7"
           class="block bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#FF8400] focus:ring-2 focus:outline-none w-full p-2.5 placeholder-gray-400"
           placeholder="Add Description" maxlength="200"></textarea>
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#FEEFAD]">*Max Character : 200 Character</p>
+      </div>
+      <div class="mb-3">
+        <label for="datePicker" class="block mb-2 text-base font-medium text-white">Select Date</label>
+        <div class="relative max-w-sm">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+              </svg>
+          </div>
+          <input datepicker datepicker-buttons datepicker-autoselect-today id="datePicker" name="updateDatePicker" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full ps-10 p-2.5" placeholder="Select date">
+        </div>
       </div>
       <input type="hidden" id="updateTaskId" name="taskId">
       <button id="dropdownHoverButton" data-dropdown-toggle="dropdownTime2"
@@ -152,43 +175,41 @@
       </button>
       <!-- Dropdown menu -->
       <div id="dropdownTime2"
-      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
-      <div class="flex gap-2 p-3">
-        <div>
-          <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
-            time:</label>
-          <div class="relative flex items-center">
-            <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-              <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd"
-                  d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                  clip-rule="evenodd" />
-              </svg>
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
+        <div class="flex gap-2 p-3">
+          <div>
+            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
+              time:</label>
+            <div class="relative flex items-center">
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" name="updateStartTime" id="start-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
             </div>
-            <input type="time" name="updateStartTime" id="start-time"
-              class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              value="00:00" />
           </div>
-        </div>
-        <div>
-          <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
-          <div class="relative">
-            <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd"
-                  d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                  clip-rule="evenodd" />
-              </svg>
+          <div>
+            <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="time" name="updateEndTime" id="end-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
             </div>
-            <input type="time" name="updateEndTime" id="end-time"
-              class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              value="00:00" />
           </div>
         </div>
       </div>
-    </div>
       <button type="submit"
         class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
     </form>
@@ -197,26 +218,29 @@
   <!-- CONFIRMATION ALERT -->
   <div tabindex="-1" class="confirm-alert popup-modal">
     <div class="p-4 w-full max-w-md max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="close-popup-btn close-popup-icon">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="p-4 md:p-5 text-center">
-                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                </svg>
-                <h3 class="alert-detail mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"></h3>
-                <button type="button" class="confirm-popup-btn">
-                    Yes, I'm sure
-                </button>
-                <button type="button" class="close-popup-btn close-popup-button">Cancel</button>
-            </div>
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button type="button" class="close-popup-btn close-popup-icon">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+        <div class="p-4 md:p-5 text-center">
+          <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          <h3 class="alert-detail mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"></h3>
+          <button type="button" class="confirm-popup-btn">
+            Yes, I'm sure
+          </button>
+          <button type="button" class="close-popup-btn close-popup-button">Cancel</button>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- DETAIL TASK SECTION -->
   <div class="bg-overlay-detail disp">
@@ -224,14 +248,15 @@
       <div class="px-3 py-2">Here you can view the details of the task you have been maked</p>
       </div>
       <div data-popper-arrow></div>
-  </div>
+    </div>
     <div class="flex justify-between p-3 items-center max-w-lg mx-auto">
       <img src="./img/Right Arrow.webp" class="back-detail rotate-180 cursor-pointer" alt="" />
       <span class="header">
         <h1 class="font-semibold text-slate-50 text-lg lg:text-xl text-center leading-tight">Detail Task</h1>
         <h2 class="detail-time font-medium text-slate-50 text-md lg:text-lg leading-tight"></h2>
       </span>
-      <img src="./img/Info.webp" data-popover-target="popover-left-2" data-popover-placement="left" width="35px" alt="" />
+      <img src="./img/Info.webp" data-popover-target="popover-left-2" data-popover-placement="left" width="35px"
+        alt="" />
     </div>
     <div class="detail-content mt-10 max-w-sm px-5 mx-auto flex flex-col gap-4">
       <div class="detail-head justify-start items-center">
@@ -243,38 +268,35 @@
       <div class="description-detail-area w-full rounded-xl break-words bg-[#FEEFAD] p-4">
         <h2 class="w-max font-semibold text-base text-[#03AED2]">Description</h2>
         <p class="detail-description text-sm text-neutral-800"></p>
-        </div>
+      </div>
     </div>
   </div>
 
   <!-- ALERT SUCCESS -->
-  <div id="sticky-banner" tabindex="-1"
-  class="sticky-alert-banner">
-  <div class="flex items-center mx-auto">
-    <p class="flex items-center text-sm font-normal text-green-500">
-      <span
-        class="inline-flex p-1 me-3 bg-green-200 rounded-full  w-6 h-6 items-center justify-center flex-shrink-0">
-        <svg class="w-3 h-3 text-green-500" aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
-          <path
-            d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z" />
+  <div id="sticky-banner" tabindex="-1" class="sticky-alert-banner">
+    <div class="flex items-center mx-auto">
+      <p class="flex items-center text-sm font-normal text-green-500">
+        <span class="inline-flex p-1 me-3 bg-green-200 rounded-full  w-6 h-6 items-center justify-center flex-shrink-0">
+          <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 18 19">
+            <path
+              d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z" />
+          </svg>
+          <span class="sr-only"></span>
+        </span>
+        <span class="alert"></span>
+      </p>
+    </div>
+    <div class="flex items-center">
+      <button data-dismiss-target="#sticky-banner" type="button" class="close-btn">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
         </svg>
-        <span class="sr-only"></span>
-      </span>
-      <span class="alert"></span>
-    </p>
+        <span class="sr-only">Close banner</span>
+      </button>
+    </div>
   </div>
-  <div class="flex items-center">
-    <button data-dismiss-target="#sticky-banner" type="button"
-      class="close-btn">
-      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-      </svg>
-      <span class="sr-only">Close banner</span>
-    </button>
-  </div>
-</div>
 
   <!-- Container -->
   <div class="container p-5 md:max-w-[870px] lg:max-w-screen-xl">
@@ -284,10 +306,10 @@
     </nav>
     <div data-popover id="popover-left" role="tooltip" class="popover">
       <div class="px-3 py-2">
-          <p>For detail task information, You can double click on the card of task</p>
+        <p>For detail task information, You can double click on the card of task</p>
       </div>
       <div data-popper-arrow></div>
-  </div>
+    </div>
     <div class="content grid grid-cols-2 auto-rows-max md:grid-cols-3 md:max-w-5xl md:mt-7 md:mx-auto gap-y-5 p-3 ">
       <header class="col-span-2 md:col-span-1 mb-2 ">
         <h1 class="greeting font-semibold text-[#FFD423] text-2xl lg:text-3xl">Good Morning !</h1>
@@ -297,13 +319,15 @@
         <span class="btn-add btn-hover bg-slate-50 hover:ring-[#FF8400] hover:ring-2 transition-all duration-300">
           <h3 class="font-semibold text-[#853D00] text-base lg:text-lg">Add Item</h3>
           <img src="./img/Add.webp" alt="" height="30px" />
-          
+
         </span>
         <div class="right flex gap-3 items-center">
           <h4 class="num-of-task">
-            
+
           </h4>
-          <button class="deleteAll p-2 rounded-lg bg-[#FDDE55] font-semibold text-[#562D00] w-max h-max leading-none text-sm">Delete All Task</button>
+          <button
+            class="deleteAll p-2 rounded-lg bg-[#FDDE55] font-semibold text-[#562D00] w-max h-max leading-none text-sm">Delete
+            All Task</button>
         </div>
       </div>
       <div class="tabs flex justify-between items-center col-span-2 md:col-span-3">
@@ -313,7 +337,8 @@
           <h2 class="tab-option" data-tab="completed">Completed</h2>
         </div>
       </div>
-      <div class="card-place lg:justify-center md:col-span-3 md:row-start-3 [&>.card]:border-2 [&>.card]:border-[#FF8400]">
+      <div
+        class="card-place lg:justify-center md:col-span-3 md:row-start-3 [&>.card]:border-2 [&>.card]:border-[#FF8400]">
       </div>
     </div>
     <footer>
@@ -326,6 +351,7 @@
   <script type="module" src="./js/eventHandling.js"></script>
   <script type="module" src="./js/taskManagement.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 </body>
 
 </html>

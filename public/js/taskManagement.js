@@ -83,9 +83,25 @@ function saveTask(tasks) {
 }
 
 // CREATE TASK
-function createTask(id, taskName, description, startTime, endTime, isComplete) {
+function createTask(
+  id,
+  taskName,
+  description,
+  startTime,
+  endTime,
+  datePick,
+  isComplete
+) {
   const tasks = loadTasks();
-  tasks[id] = { id, taskName, description, startTime, endTime, isComplete };
+  tasks[id] = {
+    id,
+    taskName,
+    description,
+    startTime,
+    endTime,
+    datePick,
+    isComplete,
+  };
   saveTask(tasks);
 }
 
@@ -94,9 +110,36 @@ function addTask() {
   let taskName = document.querySelector('input[name="task-name"]').value;
   let startTime = document.querySelector('input[name="startTime"]').value;
   let endTime = document.querySelector('input[name="endTime"]').value;
+  let datePicker = document.querySelector('input[name="datePicker"]').value;
   let descriptionTask = document.querySelector(".description").value;
   const id = Date.now().toString();
-  createTask(id, taskName, descriptionTask, startTime, endTime, false);
+  if (datePicker === "") {
+    datePicker = new Date();
+  }
+  if (startTime === "") {
+    startTime = new Date().toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+    });
+  }
+  if (endTime === "") {
+    endTime = new Date().toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+    });
+  }
+
+  createTask(
+    id,
+    taskName,
+    descriptionTask,
+    startTime,
+    endTime,
+    datePicker,
+    false
+  );
   displayTask();
 }
 
@@ -107,6 +150,9 @@ function updateTask(id) {
     'input[name="updateStartTime"]'
   ).value;
   let newendTime = document.querySelector('input[name="updateEndTime"]').value;
+  let newdatePick = document.querySelector(
+    'input[name="updateDatePicker"]'
+  ).value;
   let newdescriptionTask = document.querySelector(
     "textarea#updateDescription"
   ).value;
@@ -120,6 +166,7 @@ function updateTask(id) {
       description: newdescriptionTask,
       startTime: newstartTime,
       endTime: newendTime,
+      datePick: newdatePick,
       isComplete: false,
     };
     saveTask(tasks);
@@ -194,6 +241,23 @@ document.querySelector(".deleteAll").addEventListener("click", () => {
   }
 });
 
+// Date Formatted
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 export function displayTask() {
   const tasks = getTask();
   // Delete all existing tasks before displaying new ones to avoid the duplicated task on cardplace section
@@ -238,12 +302,30 @@ export function displayTask() {
     // display all task based on filteredTasks
     filteredTasks.forEach((task) => {
       let taskTime;
+      const date = new Date(task.datePick);
+      const dayName = dayNames[date.getDay()];
+      const day = date.getDate();
+      const monthName = monthNames[date.getMonth()];
+      const year = date.getFullYear();
+
+      const formattedDate = `${dayName}, ${day} ${monthName} ${year}`;
       // selection time
-      if (task.startTime !== "00:00" || task.endTime !== "00:00") {
+      if (task.endTime !== "" && task.datePick !== "") {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
-          ${task.startTime} ${task.startTime.split(":")[0] < 12 ? "am" : "pm"} -
-          ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
+        ${task.endTime} ${
+          task.endTime.split(":")[0] < 12 ? "am" : "pm"
+        } | ${formattedDate}
+        </span>
+        `;
+      } else if (task.datePick !== "") {
+        taskTime = `<span class="time-badge absolute bottom-0 left-0">${formattedDate}</span>`;
+      } else if (task.endTime !== "") {
+        taskTime = `
+        <span class="time-badge absolute bottom-0 left-0">
+        ${task.endTime} ${
+          task.endTime.split(":")[0] < 12 ? "am" : "pm"
+        } | ${formattedDate}
         </span>
         `;
       } else {
@@ -316,6 +398,8 @@ export function displayTask() {
             task.startTime;
           document.querySelector('input[name="updateEndTime"]').value =
             task.endTime;
+          document.querySelector('input[name="updateDatePicker"]').value =
+            task.datePick;
           document.querySelector("textarea#updateDescription").value =
             task.description;
           document.getElementById("updateTaskId").value = taskId;

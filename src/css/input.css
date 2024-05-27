@@ -76,7 +76,7 @@
     @apply rounded-lg max-h-[450px] col-span-2 flex flex-col md:flex-row md:flex-wrap gap-4 w-full overflow-y-auto overflow-x-hidden md:rounded-xl bg-slate-50 shadow-lg p-6;
   }
   .card {
-    @apply rounded-xl p-3 pb-5 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] max-w-[336px] lg:w-full gap-[-8px] md:flex-grow md:flex-shrink md:basis-[300px] h-max;
+    @apply rounded-xl p-3 pb-8 grid grid-cols-2 items-center bg-slate-50 min-w-[230px] max-w-[336px] lg:w-full gap-[-8px] md:flex-grow md:flex-shrink md:basis-[300px] h-max;
   }
   .time-badge {
     @apply text-sm font-medium max-w-[85%] rounded-s-md rounded-b-lg px-3 bg-[#F8D02D];
