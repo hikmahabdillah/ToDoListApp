@@ -83,22 +83,13 @@ function saveTask(tasks) {
 }
 
 // CREATE TASK
-function createTask(
-  id,
-  taskName,
-  description,
-  startTime,
-  endTime,
-  datePick,
-  isComplete
-) {
+function createTask(id, taskName, description, setTime, datePick, isComplete) {
   const tasks = loadTasks();
   tasks[id] = {
     id,
     taskName,
     description,
-    startTime,
-    endTime,
+    setTime,
     datePick,
     isComplete,
   };
@@ -108,41 +99,29 @@ function createTask(
 // ADD TASK FEATURE
 function addTask() {
   let taskName = document.querySelector('input[name="task-name"]').value;
-  let startTime = document.querySelector('input[name="startTime"]').value;
-  let endTime = document.querySelector('input[name="endTime"]').value;
+  let setTime = document.querySelector('input[name="setTime"]').value;
   let datePicker = document.querySelector('input[name="datePicker"]').value;
   let descriptionTask = document.querySelector(".description").value;
   const id = Date.now().toString();
-  if (datePicker === "") {
-    datePicker = new Date();
-  }
-  if (startTime === "") {
-    startTime = new Date().toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: false,
-    });
-  }
+  // if (datePicker === "") {
+  //   datePicker = new Date();
+  // }
+  // if (startTime === "") {
+  //   startTime = new Date().toLocaleTimeString("en-US", {
+  //     hour: "numeric",
+  //     minute: "numeric",
+  //     hour12: false,
+  //   });
+  // }
 
-  createTask(
-    id,
-    taskName,
-    descriptionTask,
-    startTime,
-    endTime,
-    datePicker,
-    false
-  );
+  createTask(id, taskName, descriptionTask, setTime, datePicker, false);
   displayTask();
 }
 
 // UPDATE TASK FEATURE
 function updateTask(id) {
   let newtaskName = document.querySelector("input#updateTaskName").value;
-  let newstartTime = document.querySelector(
-    'input[name="updateStartTime"]'
-  ).value;
-  let newendTime = document.querySelector('input[name="updateEndTime"]').value;
+  let newsetTime = document.querySelector('input[name="updateSetTime"]').value;
   let newdatePick = document.querySelector(
     'input[name="updateDatePicker"]'
   ).value;
@@ -157,8 +136,7 @@ function updateTask(id) {
       id,
       taskName: newtaskName,
       description: newdescriptionTask,
-      startTime: newstartTime,
-      endTime: newendTime,
+      setTime: newsetTime,
       datePick: newdatePick,
       isComplete: false,
     };
@@ -299,26 +277,23 @@ export function displayTask() {
       const dayName = dayNames[date.getDay()];
       const day = date.getDate();
       const monthName = monthNames[date.getMonth()];
-      const year = date.getFullYear();
 
-      const formattedDate = `${dayName}, ${day} ${monthName} ${year}`;
+      const formattedDate = `${dayName}, ${day} ${monthName}`;
       // selection time
-      if (task.endTime !== "00:00" && task.datePick !== "") {
+      if (task.setTime !== "" && task.datePick !== "") {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
-        ${task.endTime} ${
-          task.endTime.split(":")[0] < 12 ? "am" : "pm"
+        ${task.setTime} ${
+          task.setTime.split(":")[0] < 12 ? "am" : "pm"
         } | ${formattedDate}
         </span>
         `;
       } else if (task.datePick !== "") {
         taskTime = `<span class="time-badge absolute bottom-0 left-0">${formattedDate}</span>`;
-      } else if (task.endTime !== "00:00") {
+      } else if (task.setTime !== "") {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
-        ${task.endTime} ${
-          task.endTime.split(":")[0] < 12 ? "am" : "pm"
-        } | ${formattedDate}
+        ${task.setTime} ${task.setTime.split(":")[0] < 12 ? "am" : "pm"}
         </span>
         `;
       } else {
@@ -387,10 +362,8 @@ export function displayTask() {
 
           // reassign value of field on form update
           document.querySelector("input#updateTaskName").value = task.taskName;
-          document.querySelector('input[name="updateStartTime"]').value =
-            task.startTime;
-          document.querySelector('input[name="updateEndTime"]').value =
-            task.endTime;
+          document.querySelector('input[name="updateSetTime"]').value =
+            task.setTime;
           document.querySelector('input[name="updateDatePicker"]').value =
             task.datePick;
           document.querySelector("textarea#updateDescription").value =
@@ -435,25 +408,13 @@ function showTaskDetail(taskId) {
   const tasks = loadTasks();
   const task = tasks[taskId]; // Get the correct task data
 
-  let taskTime;
-  // selection time
-  if (task.startTime !== "00:00" || task.endTime !== "00:00") {
-    taskTime = `
-           -
-          ${task.endTime} ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}
-        `;
-  } else {
-    taskTime = "";
-  }
-
   // Set the detail values
   const detailTitle = document.querySelector(".detail-title");
   const detailDescription = document.querySelector(".detail-description");
   const detailDescriptionArea = document.querySelector(
     ".description-detail-area"
   );
-  const detailStartTime = document.querySelector(".detail-start-time");
-  const detailEndTime = document.querySelector(".detail-end-time");
+  const detailSetTime = document.querySelector(".detail-set-time");
   const detailDate = document.querySelector(".detail-date");
   const detailStatus = document.querySelector(".detail-status");
 
@@ -468,19 +429,29 @@ function showTaskDetail(taskId) {
   const dayName = dayNames[date.getDay()];
   const day = date.getDate();
   const monthName = monthNames[date.getMonth()];
-  const year = date.getFullYear();
 
-  const formattedDate = `${dayName}, ${day} ${monthName} ${year}`;
+  const formattedDate = `${dayName}, ${day} ${monthName}`;
 
   detailTitle.textContent = task.taskName;
   detailDescription.textContent = task.description;
-  detailStartTime.innerHTML = `<span class="text-neutral-800">Start Time :</span> ${
-    task.startTime
-  } ${task.startTime.split(":")[0] < 12 ? "am" : "pm"}`;
-  detailEndTime.innerHTML = `<span class="text-neutral-800">End Time :</span> ${
-    task.endTime
-  } ${task.endTime.split(":")[0] < 12 ? "am" : "pm"}`;
-  detailDate.innerHTML = `<span class="text-neutral-800">Date :</span> ${formattedDate}`;
+  if (task.setTime !== "" && task.datePick !== "") {
+    detailSetTime.innerHTML = `<span class="text-neutral-800">Time :</span> ${
+      task.setTime
+    } ${task.setTime.split(":")[0] < 12 ? "am" : "pm"}`;
+    detailDate.innerHTML = `<span class="text-neutral-800">Date :</span> ${formattedDate}`;
+  } else if (task.datePick !== "") {
+    detailDate.innerHTML = `<span class="text-neutral-800">Date :</span> ${formattedDate}`;
+    detailSetTime.innerHTML = "";
+  } else if (task.setTime !== "") {
+    detailSetTime.innerHTML = `<span class="text-neutral-800">Time :</span> ${
+      task.setTime
+    } ${task.setTime.split(":")[0] < 12 ? "am" : "pm"}`;
+    detailDate.innerHTML = "";
+  } else {
+    detailDate.innerHTML = "";
+    detailSetTime.innerHTML = "";
+  }
+
   if (task.isComplete == true) {
     detailStatus.textContent = "Completed";
   } else {

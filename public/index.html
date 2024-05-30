@@ -89,23 +89,7 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
-            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
-              time:</label>
-            <div class="relative flex items-center">
-              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd"
-                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                    clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input type="time" name="startTime" id="start-time"
-                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
-            </div>
-          </div>
-          <div>
-            <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
+            <label for="set-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Set time:</label>
             <div class="relative">
               <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -115,8 +99,8 @@
                     clip-rule="evenodd" />
                 </svg>
               </div>
-              <input type="time" name="endTime" id="end-time"
-                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="00:00"/>
+              <input type="time" name="setTime" id="set-time"
+                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
             </div>
           </div>
         </div>
@@ -178,23 +162,7 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
-            <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
-              time:</label>
-            <div class="relative flex items-center">
-              <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd"
-                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                    clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input type="time" name="updateStartTime" id="start-time"
-                class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-            </div>
-          </div>
-          <div>
-            <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End time:</label>
+            <label for="set-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Set time:</label>
             <div class="relative">
               <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -204,7 +172,7 @@
                     clip-rule="evenodd" />
                 </svg>
               </div>
-              <input type="time" name="updateEndTime" id="end-time"
+              <input type="time" name="updateSetTime" id="set-time"
                 class="cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
             </div>
           </div>
@@ -268,9 +236,9 @@
         <h2 class="w-max font-semibold text-base text-[#03AED2]">Description</h2>
         <p class="detail-description text-sm text-neutral-800"></p>
       </div>
-      <h1 class="font-medium text-neutral-800 text-center text-lg lg:text-xl leading-tight">Deadline</h1>
-      <h2 class="detail-start-time font-medium text-slate-50 text-base lg:text-lg leading-tight"></h2>
-      <h2 class="detail-end-time font-medium text-slate-50 text-base lg:text-lg leading-tight"></h2>
+      <h1 class="head-deadline font-medium text-neutral-800 text-center text-lg lg:text-xl leading-tight">Deadline</h1>
+      <!-- <h2 class="detail-start-time font-medium text-slate-50 text-base lg:text-lg leading-tight"></h2> -->
+      <h2 class="detail-set-time font-medium text-slate-50 text-base lg:text-lg leading-tight"></h2>
       <h2 class="detail-date font-medium text-slate-50 text-base lg:text-lg leading-tight"></h2>
     </div>
   </div>
