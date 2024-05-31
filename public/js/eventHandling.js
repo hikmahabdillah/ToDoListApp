@@ -59,6 +59,11 @@ export function handleEvents() {
   });
 
   btnAdd.addEventListener("click", () => {
+    // const setTime = new Date().toLocaleTimeString("en-US", {
+    //   hour: "numeric",
+    //   minute: "numeric",
+    //   hour12: false,
+    // });
     bgcontent.classList.remove("disp");
     bgcontent.style.display = "block";
     setTimeout(function () {

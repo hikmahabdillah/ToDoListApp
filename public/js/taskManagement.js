@@ -103,6 +103,11 @@ function addTask() {
   let datePicker = document.querySelector('input[name="datePicker"]').value;
   let descriptionTask = document.querySelector(".description").value;
   const id = Date.now().toString();
+  if (datePicker === "" && setTime !== "") {
+    const date = new Date();
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    datePicker = new Date(date).toLocaleDateString("en-US", options);
+  }
   // if (datePicker === "") {
   //   datePicker = new Date();
   // }
@@ -269,6 +274,18 @@ export function displayTask() {
     // cardPlace.innerHTML = `<h2 class="max-w-[80%] text-base justify-self-center self-center font-medium text-center pb-3 text-[#562D00]">No Tasks found in this category</h2>`;
     cardPlace.innerHTML = noTaskAnimation;
   } else {
+    // sorting based on time
+    filteredTasks.sort((a, b) => {
+      const [aHours, aMinutes] = a.setTime.split(":").map(Number);
+      const [bHours, bMinutes] = b.setTime.split(":").map(Number);
+      return aHours - bHours || aMinutes - bMinutes;
+    });
+    // sorting based on date
+    filteredTasks.sort((a, b) => {
+      const dateA = new Date(a.datePick);
+      const dateB = new Date(b.datePick);
+      return dateA - dateB;
+    });
     // ADD CARD
     // display all task based on filteredTasks
     filteredTasks.forEach((task) => {
@@ -465,14 +482,33 @@ function showTaskDetail(taskId) {
   }, 200);
 }
 
+const datePick = document.querySelector("input.datePicker");
+const setTime = document.querySelector("input.setTime");
+
+function checkDatePick() {
+  if (datePick.value.trim() !== "") {
+    setTime.required = true;
+  } else {
+    setTime.required = false;
+  }
+}
+
+checkDatePick();
+datePick.addEventListener("input", checkDatePick);
 formAdd.addEventListener("submit", (event) => {
-  addTask();
-  showNumOfTask();
-  event.preventDefault();
-  bgcontent.style.transform = "translateY(-100%)";
-  bgcontent.style.display = "none";
-  document.querySelector("span.alert").textContent =
-    "Task has been successfully added!";
-  displayAlert();
-  formAdd.reset();
+  checkDatePick();
+  if (datePick.value !== "" && setTime.value === "") {
+    // setTime.required = true;
+    console.log(true);
+  } else {
+    addTask();
+    showNumOfTask();
+    event.preventDefault();
+    bgcontent.style.transform = "translateY(-100%)";
+    bgcontent.style.display = "none";
+    document.querySelector("span.alert").textContent =
+      "Task has been successfully added!";
+    displayAlert();
+    formAdd.reset();
+  }
 });
