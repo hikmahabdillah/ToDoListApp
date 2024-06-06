@@ -133,6 +133,11 @@ function updateTask(id) {
   let newdescriptionTask = document.querySelector(
     "textarea#updateDescription"
   ).value;
+  if (newdatePick === "" && setTime !== "") {
+    const date = new Date();
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    newdatePick = new Date(date).toLocaleDateString("en-US", options);
+  }
 
   const tasks = getTask();
 
@@ -395,7 +400,26 @@ export function displayTask() {
           }, 200);
         });
 
+        function checkDatePick() {
+          const upddatepickElement =
+            document.getElementById("updateDatePicker");
+          const updsettimeElement = document.getElementById("update-set-time");
+          const upddatepick = upddatepickElement.value;
+
+          if (upddatepick.trim() !== "" || task.datePick !== "") {
+            updsettimeElement.required = true;
+          } else {
+            updsettimeElement.required = false;
+          }
+        }
+
+        checkDatePick();
+        document
+          .querySelector('input[name="updateDatePicker"]')
+          .addEventListener("input", checkDatePick);
         formUpdate.addEventListener("submit", (event) => {
+          checkDatePick();
+
           event.preventDefault();
 
           //get the task id value that will be updated
@@ -497,6 +521,7 @@ checkDatePick();
 datePick.addEventListener("input", checkDatePick);
 formAdd.addEventListener("submit", (event) => {
   checkDatePick();
+  event.preventDefault();
   if (datePick.value !== "" && setTime.value === "") {
     // setTime.required = true;
     console.log(true);

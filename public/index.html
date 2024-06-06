@@ -134,18 +134,32 @@
         <p id="helper-text-explanation" class="mt-1 text-sm text-[#FEEFAD]">*Max Character : 200 Character</p>
       </div>
       <div class="mb-3">
-        <label for="datePicker" class="block mb-2 text-base font-medium text-white">Select Date</label>
-        <div class="relative max-w-sm">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-              </svg>
+        <label for="datePicker" class="block mb-2 text-base font-medium text-white">Set Time</label>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="relative max-w-sm">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+               <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input datepicker datepicker-buttons datepicker-autoselect-today name="updateDatePicker" id="updateDatePicker"  type="text" class="datePicker bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full ps-10 p-2.5" placeholder="Select date">
           </div>
-          <input datepicker datepicker-buttons datepicker-autoselect-today id="datePicker" name="updateDatePicker" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full ps-10 p-2.5" placeholder="Select date">
+          <div class="relative">
+            <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd"
+                  d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <input type="time" name="updateSetTime" id="update-set-time"
+              class="setTime cursor-pointer bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
+          </div>
         </div>
-      </div>
+        </div>
       <input type="hidden" id="updateTaskId" name="taskId">
-      <button id="dropdownHoverButton" data-dropdown-toggle="dropdownTime2"
+      <!-- <button id="dropdownHoverButton" data-dropdown-toggle="dropdownTime2"
         class="text-white w-max bg-[#FF8400] hover:bg-[#ff8400d5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
         type="button">Add Time<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
           fill="none" viewBox="0 0 10 6">
@@ -154,7 +168,7 @@
         </svg>
       </button>
       <!-- Dropdown menu -->
-      <div id="dropdownTime2"
+      <!-- <div id="dropdownTime2"
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-max">
         <div class="flex gap-2 p-3">
           <div>
@@ -173,7 +187,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --> 
       <button type="submit"
         class="block mt-3 w-max text-white bg-[#FF8400] hover:bg-[#9f5200c2] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center self-end">Submit</button>
     </form>
