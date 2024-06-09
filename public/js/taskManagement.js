@@ -344,7 +344,7 @@ export function displayTask() {
         </span>
         `;
       } else if (isOverdue) {
-        taskTime = `<span class="time-badge bg-red-600 absolute bottom-0 left-0">Overdue</span>`;
+        taskTime = `<span class="time-badge bg-red-600 text-slate-50 absolute bottom-0 left-0">Overdue</span>`;
       } else {
         taskTime = "";
       }
