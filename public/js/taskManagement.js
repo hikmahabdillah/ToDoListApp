@@ -295,14 +295,39 @@ export function displayTask() {
     // display all task based on filteredTasks
     filteredTasks.forEach((task) => {
       let taskTime;
+      const currentDate = new Date();
+      const currentHours = currentDate.getHours();
+      const currentMinutes = currentDate.getMinutes();
+      const taskHours = task.setTime
+        ? parseInt(task.setTime.split(":")[0])
+        : null;
+      const taskMinutes = task.setTime
+        ? parseInt(task.setTime.split(":")[1])
+        : null;
       const date = new Date(task.datePick);
       const dayName = dayNames[date.getDay()];
       const day = date.getDate();
       const monthName = monthNames[date.getMonth()];
 
       const formattedDate = `${dayName}, ${day} ${monthName}`;
+
+      // Check if the task is overdue
+      let isOverdue = false;
+      console.log(date);
+      console.log(currentDate);
+      if (
+        task.datePick !== "" &&
+        date < currentDate &&
+        date.getTime() < currentDate.getTime() &&
+        task.setTime !== "" &&
+        (taskHours < currentHours ||
+          (taskHours === currentHours && taskMinutes < currentMinutes))
+      ) {
+        isOverdue = true;
+      }
+
       // selection time
-      if (task.setTime !== "" && task.datePick !== "") {
+      if (task.setTime !== "" && task.datePick !== "" && !isOverdue) {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
         ${task.setTime} ${
@@ -310,14 +335,16 @@ export function displayTask() {
         } | ${formattedDate}
         </span>
         `;
-      } else if (task.datePick !== "") {
+      } else if (task.datePick !== "" && !isOverdue) {
         taskTime = `<span class="time-badge absolute bottom-0 left-0">${formattedDate}</span>`;
-      } else if (task.setTime !== "") {
+      } else if (task.setTime !== "" && !isOverdue) {
         taskTime = `
         <span class="time-badge absolute bottom-0 left-0">
         ${task.setTime} ${task.setTime.split(":")[0] < 12 ? "am" : "pm"}
         </span>
         `;
+      } else if (isOverdue) {
+        taskTime = `<span class="time-badge bg-red-600 absolute bottom-0 left-0">Overdue</span>`;
       } else {
         taskTime = "";
       }
