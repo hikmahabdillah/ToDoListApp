@@ -316,8 +316,6 @@ export function displayTask() {
 
       // Check if the task is overdue
       let isOverdue = false;
-      console.log(task.datePick);
-      console.log(datePick);
 
       if (task.datePick !== "" && task.datePick < datePick) {
         isOverdue = true;
