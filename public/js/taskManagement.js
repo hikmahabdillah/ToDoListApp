@@ -296,6 +296,9 @@ export function displayTask() {
     filteredTasks.forEach((task) => {
       let taskTime;
       const currentDate = new Date();
+      let datePick;
+      const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+      datePick = new Date(currentDate).toLocaleDateString("en-US", options);
       const currentHours = currentDate.getHours();
       const currentMinutes = currentDate.getMinutes();
       const taskHours = task.setTime
@@ -313,12 +316,12 @@ export function displayTask() {
 
       // Check if the task is overdue
       let isOverdue = false;
-      console.log(date);
-      console.log(currentDate);
-      if (
-        task.datePick !== "" &&
-        date < currentDate &&
-        date.getTime() < currentDate.getTime() &&
+      console.log(task.datePick);
+      console.log(datePick);
+
+      if (task.datePick !== "" && task.datePick < datePick) {
+        isOverdue = true;
+      } else if (
         task.setTime !== "" &&
         (taskHours < currentHours ||
           (taskHours === currentHours && taskMinutes < currentMinutes))
