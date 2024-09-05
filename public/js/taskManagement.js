@@ -133,7 +133,7 @@ function updateTask(id) {
   let newdescriptionTask = document.querySelector(
     "textarea#updateDescription"
   ).value;
-  if (newdatePick === "" && setTime !== "") {
+  if (newdatePick === "" && newsetTime !== "") {
     const date = new Date();
     const options = { year: "numeric", month: "2-digit", day: "2-digit" };
     newdatePick = new Date(date).toLocaleDateString("en-US", options);
