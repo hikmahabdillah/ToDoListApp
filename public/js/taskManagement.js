@@ -319,7 +319,9 @@ export function displayTask() {
 
       if (task.datePick !== "" && task.datePick < datePick) {
         isOverdue = true;
-      } else if (
+      }
+      if (
+        task.datePick === datePick &&
         task.setTime !== "" &&
         (taskHours < currentHours ||
           (taskHours === currentHours && taskMinutes < currentMinutes))
